@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+        <Contract_PluginFileName Condition=" '$(Contract_PluginFileName)' == '' and '$(Language)' == 'C#' ">contract_csharp_plugin</Contract_PluginFileName>
+        <PatcherDir>..\..\scripts\patcher</PatcherDir>
+        <PatcherProjectName>AElf.Tools</PatcherProjectName>
+    </PropertyGroup>
+
+  <ItemGroup Condition=" '$(Protobuf_ProjectSupported)' == 'true' and '$(Language)' == 'C#' ">
+    <!-- Extend property pages with contract properties. -->
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)Contract.CSharp.xml">
+      <Context>File;BrowseObject</Context>
+    </PropertyPageSchema>
+  </ItemGroup>
+
+    <!-- This target is invoked in a C# project, or can be called in a customized project. -->
+  <Target Name="Contract_ResolvePluginFullPath" AfterTargets="Protobuf_ResolvePlatform">
+    <PropertyGroup>
+      <!-- TODO(kkm): Do not use Protobuf_PackagedToolsPath, roll contract's own. -->
+
+      <!-- First try environment variable. -->
+      <Contract_PluginFullPath Condition=" '$(Contract_PluginFullPath)' == '' ">$(CONTRACT_PROTOC_PLUGIN)</Contract_PluginFullPath>
+
+      <Contract_PluginFullPath Condition=" '$(Contract_PluginFullPath)' == '' and '$(Protobuf_ToolsOs)' == 'windows' "
+           >$(Protobuf_PackagedToolsPath)\$(Protobuf_ToolsOs)_$(Protobuf_ToolsCpu)\$(Contract_PluginFileName).exe</Contract_PluginFullPath>
+      <Contract_PluginFullPath Condition=" '$(Contract_PluginFullPath)' == '' "
+           >$(Protobuf_PackagedToolsPath)/$(Protobuf_ToolsOs)_$(Protobuf_ToolsCpu)/$(Contract_PluginFileName)</Contract_PluginFullPath>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="_Contract_PrepareCompileOptions" AfterTargets="Protobuf_PrepareCompileOptions">
+    <ItemGroup Condition=" '$(Language)' == 'C#' ">
+      <Protobuf_Compile Condition=" %(Protobuf_Compile.ContractServices) != 'None' ">
+        <ContractPluginExe Condition=" '%(Protobuf_Compile.ContractPluginExe)' == '' ">$(Contract_PluginFullPath)</ContractPluginExe>
+        <ContractOutputDir Condition=" '%(Protobuf_Compile.ContractOutputDir)' == '' " >%(Protobuf_Compile.OutputDir)</ContractOutputDir>
+        <_ContractOutputOptions Condition=" '%(Protobuf_Compile.Access)' == 'Internal' ">%(Protobuf_Compile._ContractOutputOptions);internal_access</_ContractOutputOptions>
+      </Protobuf_Compile>
+    </ItemGroup>
+  </Target>
+
+</Project>

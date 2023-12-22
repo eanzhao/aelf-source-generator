@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    </PropertyGroup>
+
+    <!-- Build patcher before building the contract -->
+<!--    <Target Name="PatcherBuild" BeforeTargets="BeforeBuild">-->
+<!--        <PropertyGroup>-->
+<!--            <IsContract Condition="'@(ContractCode)' != ''">true</IsContract>-->
+<!--            <IsSystemContract Condition="'@(ContractCode)' != '' And %(ContractCode.SystemContract) != '' And %(ContractCode.SystemContract)">true</IsSystemContract>-->
+<!--        </PropertyGroup>-->
+<!--        <MSBuild Condition="'$(IsContract)' != '' AND '$(IsContract)'" Projects="$(ProjectDir)/../../src/$(PatcherProjectName)/$(PatcherProjectName).csproj"/>-->
+<!--    </Target>-->
+  
+    <!-- Patch the contract dll after building the contract -->
+    <Target Name="PatchContractCode" Condition="'$(IsContract)' != '' AND '$(IsContract)'" AfterTargets="AfterBuild">
+        <PropertyGroup>
+            <CmdPatchOverwrite Condition="'$(PatchOverwrite)' != '' AND '$(PatchOverwrite)'">-w</CmdPatchOverwrite>
+            <CmdSkipAudit Condition="'$(SkipAudit)' != '' AND '$(SkipAudit)'">-s</CmdSkipAudit>
+            <CmdTreatAsSystemContract Condition="'$(IsSystemContract)' != '' AND '$(IsSystemContract)'">-t</CmdTreatAsSystemContract>
+        </PropertyGroup>
+        <ItemGroup>
+            <DllFiles Include="$(OutDir)*.dll" />
+        </ItemGroup>
+        <Exec Condition=" '$(Protobuf_ToolsOs)' != 'windows' "
+              Command=' "$(Protobuf_PackagedToolsPath)/$(Protobuf_ToolsOs)_$(Protobuf_ToolsCpu)/AElf.ContractPatcher" $(CmdPatchOverwrite) $(CmdSkipAudit) $(CmdTreatAsSystemContract) -p "%(DllFiles.FullPath)" '
+              ConsoleToMSBuild="true" >
+            <Output TaskParameter="ConsoleOutput" ItemName="PatchContractCodeOutput"/>
+        </Exec>
+        <Exec Condition=" '$(Protobuf_ToolsOs)' == 'windows' "
+              Command=' "$(Protobuf_PackagedToolsPath)/$(Protobuf_ToolsOs)_$(Protobuf_ToolsCpu)/AElf.ContractPatcher.exe" $(CmdPatchOverwrite) $(CmdSkipAudit) $(CmdTreatAsSystemContract) -p "%(DllFiles.FullPath)" '
+              ConsoleToMSBuild="true" >
+            <Output TaskParameter="ConsoleOutput" ItemName="PatchContractCodeOutput"/>
+        </Exec>
+        <Message Text="$(PatchContractCodeOutput)"/>
+    </Target>
+    
+</Project>

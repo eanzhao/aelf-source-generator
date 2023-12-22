@@ -1,0 +1,18 @@
+build_property.rootnamespace: AElf.Contract.SourceGenerator.Test
+build_property.projecttypeguids: 
+build_property.enforceextendedanalyzerrules: 
+build_metadata.additionalfiles.generatetype: Code
+build_property.targetframework: net6.0
+build_property.targetplatformminversion: 
+build_property.invariantglobalization: 
+build_property.platformneutralassembly: 
+build_property.projectdir: /Users/zhaoyiqi/Code/contract-source-generator/test/AElf.Contract.SourceGenerator.Test/
+build_property.enablecomhosting: 
+build_property.enablegeneratedcominterfacecomimportinterop: 
+build_property._supportedplatformlist: Linux,macOS,Windows
+build_property.usingmicrosoftnetsdkweb: 
+
+            <TargetPathWithTargetPlatformMoniker Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)\$(OutputPath)\AElf.Tools.dll))" IncludeRuntimeDependency="false" />
+
+/Users/zhaoyiqi/Code/contract-source-generator/src/AElf.Contract.SourceGenerator/tools/macosx_x64/protoc --csharp_out=/Users/zhaoyiqi/Code/contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Generated --plugin=protoc-gen-contract=/Users/zhaoyiqi/Code/contract-source-generator/src/AElf.Contract.SourceGenerator/tools/macosx_x64/contract_csharp_plugin --contract_out=/Users/zhaoyiqi/Code/contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Generated --proto_path=/Users/zhaoyiqi/Code/contract-source-generator/test/AElf.Contract.SourceGenerator.Test --proto_path=/Users/zhaoyiqi/Code/contract-source-generator/src/AElf.Contract.SourceGenerator/build/native/include --dependency_out=core.proto --error_format=msvs /Users/zhaoyiqi/Code/contract-source-generator/test/AElf.Contract.SourceGenerator.Test/contract.proto
+

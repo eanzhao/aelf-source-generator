@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    </PropertyGroup>
+    
+    <!-- Name of this file must match package ID. -->
+    <!-- Packages will be split later. -->
+    <Import Project="_contract/_Contract.Tools.targets"/>
+    <Import Project="_protobuf/Google.Protobuf.Tools.targets"/>
+    <Import Project="_patch/Patch.Tools.targets"/>
+
+    <ItemGroup>
+        <ProtoProjectCompilePath Include="$(ProjectDir)Protobuf/base;$(ProjectDir)Protobuf/message;$(ProjectDir)Protobuf/contract;$(ProjectDir)Protobuf/reference;" Condition="!Exists('$(ProjectDir)Protobuf/stub')" />
+        <ProtoProjectCompilePath Include="$(ProjectDir)Protobuf/base;$(ProjectDir)Protobuf/message;$(ProjectDir)Protobuf/stub;" Condition="Exists('$(ProjectDir)Protobuf/stub')" />
+    </ItemGroup>
+    
+    <Target Name="ProtoRecoginziton" BeforeTargets="BeforeBuild">
+        <ItemGroup>
+            <ProtoPackagePathOfAllType Include="@(PackageReference->'$(NuGetPackageRoot)%(Identity)/%(Version)/Protobuf'->Exists())" />
+        </ItemGroup>
+        <Error Text="The ProtoType value can only be 'base' or 'reference'."
+               Condition="'%(ProtoPackagePathOfAllType.ProtoType)' != 'base' AND '%(ProtoPackagePathOfAllType.ProtoType)' != '' AND '%(ProtoPackagePathOfAllType.ProtoType)' != 'reference'"/>
+        
+        <ItemGroup>
+            <ProtoPackagePathOfBaseType Include="@(PackageReference->'$(NuGetPackageRoot)%(Identity)/%(Version)/Protobuf'->Exists())" 
+                                        Condition="'%(PackageReference.ProtoType)' == '' OR '%(PackageReference.ProtoType)' == 'base'"/>
+            <ProtoPackagePathOfRefType Include="@(PackageReference->'$(NuGetPackageRoot)%(Identity)/%(Version)/Protobuf'->Exists())" 
+                                       Condition="'%(PackageReference.ProtoType)' != '' AND '%(PackageReference.ProtoType)' == 'reference'"/>
+            <ProtoPathOfBaseType Include="@(ProtoPackagePathOfBaseType->'%(Identity)/**/*.proto')" />
+            <ProtoPathOfRefType Include="@(ProtoPackagePathOfRefType->'%(Identity)/**/*.proto')" />
+        </ItemGroup>
+
+        <ItemGroup>
+            <Protobuf Include="%(ProtoPathOfBaseType.Identity)" Condition="%(ProtoPathOfBaseType.Identity) != ''">
+                <ContractOutputOptions>nocontract</ContractOutputOptions>
+                <OutputDir>$(ObjPath)Protobuf/base</OutputDir>
+            </Protobuf>
+            <Protobuf Include="%(ProtoPathOfRefType.Identity)" Condition="%(ProtoPathOfRefType.Identity) != ''">
+                <ContractOutputOptions>reference</ContractOutputOptions>
+                <Access>Internal</Access>
+                <OutputDir>$(ObjPath)Protobuf/reference</OutputDir>
+            </Protobuf>
+            
+            <Protobuf Include="Protobuf/base/*.proto">
+                <ContractOutputOptions>nocontract</ContractOutputOptions>
+            </Protobuf>
+            <Protobuf Include="Protobuf/contract/*.proto"/>
+            <Protobuf Include="Protobuf/message/*.proto">
+                <ContractOutputOptions>nocontract</ContractOutputOptions>
+            </Protobuf>
+            <Protobuf Include="Protobuf/reference/*.proto">
+                <ContractOutputOptions>reference</ContractOutputOptions>
+                <Access>Internal</Access>
+            </Protobuf>
+            <Protobuf Include="Protobuf/stub/*.proto">
+                <ContractOutputOptions>stub</ContractOutputOptions>
+                <Access>Internal</Access>
+            </Protobuf>
+        </ItemGroup>
+    </Target>
+
+</Project>
