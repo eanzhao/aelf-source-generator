@@ -417,7 +417,7 @@ namespace AElf.Tools
             // Use ProtoDepDir to autogenerate DependencyOut
             if (ProtoDepDir != null)
             {
-                DependencyOut = "core.proto"; //DepFileUtil.GetDepFilenameForProto(ProtoDepDir, Protobuf[0].ItemSpec);
+                DependencyOut = DepFileUtil.GetDepFilenameForProto(ProtoDepDir, Protobuf[0].ItemSpec);
             }
 
             if (ContractPluginExe == null)
@@ -479,9 +479,10 @@ namespace AElf.Tools
             var cmd = new ProtocResponseFileBuilder();
             cmd.AddSwitchMaybe(Generator + "_out", TrimEndSlash(OutputDir));
             cmd.AddSwitchMaybe(Generator + "_opt", OutputOptions);
-            cmd.AddSwitchMaybe("plugin=protoc-gen-contract", ContractPluginExe);
-            cmd.AddSwitchMaybe("contract_out", TrimEndSlash(ContractOutputDir));
-            cmd.AddSwitchMaybe("contract_opt", ContractOutputOptions);
+            //cmd.AddSwitchMaybe("plugin=protoc-gen-contract", ContractPluginExe);
+            //cmd.AddSwitchMaybe("contract_out", TrimEndSlash(ContractOutputDir));
+            //cmd.AddSwitchMaybe("contract_opt", ContractOutputOptions);
+            cmd.AddSwitchMaybe("descriptor_set_out", $"{OutputDir}/set.pb");
             if (ProtoPath != null)
             {
                 foreach (string path in ProtoPath)

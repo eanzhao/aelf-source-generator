@@ -1,6 +1,0 @@
-/Users/zhaoyiqi/Code/aelf-contract-source-generator/Contract.c.cs \
-/Users/zhaoyiqi/Code/aelf-contract-source-generator/Contract.g.cs: /Users/zhaoyiqi/Code/aelf-contract-source-generator/build/native/include/google/protobuf/descriptor.proto\
- /Users/zhaoyiqi/Code/aelf-contract-source-generator/build/native/include/aelf/options.proto\
- /Users/zhaoyiqi/Code/aelf-contract-source-generator/build/native/include/google/protobuf/empty.proto\
- /Users/zhaoyiqi/Code/aelf-contract-source-generator/build/native/include/google/protobuf/wrappers.proto\
- /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf/contract.proto

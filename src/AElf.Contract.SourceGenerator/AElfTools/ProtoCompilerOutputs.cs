@@ -83,7 +83,7 @@ namespace AElf.Tools
                 patched.Add(patchedProto);
 
                 var outputs = generator.GetPossibleOutputs(patchedProto);
-                foreach (string output in outputs)
+                foreach (var output in outputs)
                 {
                     var ti = new TaskItem(output);
                     ti.SetMetadata(Metadata.Source, patchedProto.ItemSpec);

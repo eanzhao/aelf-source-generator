@@ -60,28 +60,32 @@ namespace AElf.Tools
         /// array if the dependency file does not exist or cannot be parsed.
         /// </returns>
         public static string[] ReadDependencyInputs(string protoDepDir, string proto,
-                                                    TaskLoggingHelper log)
+            TaskLoggingHelper log)
         {
-            string depFilename = GetDepFilenameForProto(protoDepDir, proto);
-            string[] lines = ReadDepFileLines(depFilename, false, log);
+            var depFilename = GetDepFilenameForProto(protoDepDir, proto);
+            var lines = ReadDepFileLines(depFilename, false, log);
             if (lines.Length == 0)
             {
                 return lines;
             }
 
             var result = new List<string>();
-            bool skip = true;
-            foreach (string line in lines)
+            var skip = true;
+            foreach (var line in lines)
             {
                 // Start at the only line separating dependency outputs from inputs.
-                int ix = skip ? FindLineSeparator(line) : -1;
+                var ix = skip ? FindLineSeparator(line) : -1;
                 skip = skip && ix < 0;
-                if (skip) { continue; }
-                string file = ExtractFilenameFromLine(line, ix + 1, line.Length);
+                if (skip)
+                {
+                    continue;
+                }
+
+                var file = ExtractFilenameFromLine(line, ix + 1, line.Length);
                 if (file == "")
                 {
                     log.LogMessage(MessageImportance.Low,
-              $"Skipping unparsable dependency file {depFilename}.\nLine with error: '{line}'");
+                        $"Skipping unparsable dependency file {depFilename}.\nLine with error: '{line}'");
                     return new string[0];
                 }
 
@@ -93,6 +97,7 @@ namespace AElf.Tools
                     result.Add(file);
                 }
             }
+
             return result.ToArray();
         }
 
@@ -111,30 +116,35 @@ namespace AElf.Tools
         /// file causes an error-level message to be logged.
         /// </remarks>
         public static string[] ReadDependencyOutputs(string depFilename,
-                                                    TaskLoggingHelper log)
+            TaskLoggingHelper log)
         {
-            string[] lines = ReadDepFileLines(depFilename, true, log);
+            var lines = ReadDepFileLines(depFilename, true, log);
             if (lines.Length == 0)
             {
                 return lines;
             }
 
             var result = new List<string>();
-            foreach (string line in lines)
+            foreach (var line in lines)
             {
-                int ix = FindLineSeparator(line);
-                string file = ExtractFilenameFromLine(line, 0, ix >= 0 ? ix : line.Length);
+                var ix = FindLineSeparator(line);
+                var file = ExtractFilenameFromLine(line, 0, ix >= 0 ? ix : line.Length);
                 if (file == "")
                 {
                     log.LogError("Unable to parse generated dependency file {0}.\n" +
                                  "Line with error: '{1}'", depFilename, line);
-                    return new string[0];
+                    return Array.Empty<string>();
                 }
+
                 result.Add(file);
 
                 // If this is the line with the separator, do not read further.
-                if (ix >= 0) { break; }
+                if (ix >= 0)
+                {
+                    break;
+                }
             }
+
             return result.ToArray();
         }
 
@@ -152,8 +162,8 @@ namespace AElf.Tools
         /// </remarks>
         public static string GetDepFilenameForProto(string protoDepDir, string proto)
         {
-            string dirhash = GetDirectoryHash(proto);
-            string filename = Path.GetFileNameWithoutExtension(proto);
+            var dirhash = GetDirectoryHash(proto);
+            var filename = Path.GetFileNameWithoutExtension(proto);
             return Path.Combine(protoDepDir, $"{dirhash}_{filename}.protodep");
         }
 
@@ -170,7 +180,7 @@ namespace AElf.Tools
         /// </remarks>
         public static string GetOutputDirWithHash(string outputDir, string proto)
         {
-            string dirhash = GetDirectoryHash(proto);
+            var dirhash = GetDirectoryHash(proto);
             return Path.Combine(outputDir, dirhash);
         }
 
@@ -198,7 +208,7 @@ namespace AElf.Tools
         /// </remarks>
         private static string GetDirectoryHash(string proto)
         {
-            string dirname = Path.GetDirectoryName(proto);
+            var dirname = Path.GetDirectoryName(proto);
             if (Platform.IsFsCaseInsensitive)
             {
                 dirname = dirname.ToLowerInvariant();
@@ -221,6 +231,7 @@ namespace AElf.Tools
                 {
                     hashstr.Append(hash[i].ToString("x2"));
                 }
+
                 return hashstr.ToString();
             }
         }
@@ -258,18 +269,20 @@ namespace AElf.Tools
             // C:\foo\bar\.pb.h: C:/protobuf/wrappers.proto\
             int ix = line.IndexOf(':');
             if (ix <= 0 || ix == line.Length - 1
-                || (line[ix + 1] != '/' && line[ix + 1] != '\\')
-                || !char.IsLetter(line[ix - 1]))
+                        || (line[ix + 1] != '/' && line[ix + 1] != '\\')
+                        || !char.IsLetter(line[ix - 1]))
             {
-                return ix;  // Not a windows drive: no letter before ':', or no '\' after.
+                return ix; // Not a windows drive: no letter before ':', or no '\' after.
             }
+
             for (int j = ix - 1; --j >= 0;)
             {
                 if (!char.IsWhiteSpace(line[j]))
                 {
-                    return ix;  // Not space or BOL only before "X:/".
+                    return ix; // Not space or BOL only before "X:/".
                 }
             }
+
             return line.IndexOf(':', ix + 1);
         }
 
@@ -277,7 +290,7 @@ namespace AElf.Tools
         // logging behavior in case the file not found. We require this file when
         // compiling, but reading it is optional when computing dependencies.
         static string[] ReadDepFileLines(string filename, bool required,
-                                         TaskLoggingHelper log)
+            TaskLoggingHelper log)
         {
             try
             {
@@ -286,6 +299,7 @@ namespace AElf.Tools
                 {
                     log.LogMessage(MessageImportance.Low, $"Using dependency file {filename}");
                 }
+
                 return result;
             }
             catch (Exception ex) when (Exceptions.IsIoRelated(ex))
@@ -298,7 +312,8 @@ namespace AElf.Tools
                 {
                     log.LogMessage(MessageImportance.Low, $"Skipping {filename}: {ex.Message}");
                 }
-                return new string[0];
+
+                return Array.Empty<string>();
             }
         }
     };

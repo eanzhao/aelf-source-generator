@@ -2,7 +2,7 @@ using Microsoft.Build.Framework;
 
 namespace AElf.Contract.SourceGenerator;
 
-public class FakeBuildEngine : IBuildEngine
+public class NaiveBuildEngine : IBuildEngine
 {
     private readonly List<BuildErrorEventArgs> LogErrorEvents = new();
 

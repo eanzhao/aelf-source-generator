@@ -30,13 +30,13 @@ namespace AElf.Tools
         /// of proto files cached under ProtoDepDir.
         /// </summary>
         [Required]
-        public ITaskItem[] Protobuf { get; set; }
+        public ITaskItem[]? Protobuf { get; set; }
 
         /// <summary>
         /// Directory where protoc dependency files are cached.
         /// </summary>
         [Required]
-        public string ProtoDepDir { get; set; }
+        public string? ProtoDepDir { get; set; }
 
         /// <summary>
         /// Additional items that a proto file depends on. This list may include
@@ -53,13 +53,13 @@ namespace AElf.Tools
         {
             // Read dependency files, where available. There might be none,
             // just use a best effort.
-            if (ProtoDepDir != null)
+            if (ProtoDepDir != null && Protobuf != null)
             {
                 var dependencies = new List<ITaskItem>();
                 foreach (var proto in Protobuf)
                 {
-                    string[] deps = DepFileUtil.ReadDependencyInputs(ProtoDepDir, proto.ItemSpec, Log);
-                    foreach (string dep in deps)
+                    var deps = DepFileUtil.ReadDependencyInputs(ProtoDepDir, proto.ItemSpec, Log);
+                    foreach (var dep in deps)
                     {
                         var ti = new TaskItem(dep);
                         ti.SetMetadata(Metadata.Source, proto.ItemSpec);
@@ -70,7 +70,7 @@ namespace AElf.Tools
             }
             else
             {
-                Dependencies = new ITaskItem[0];
+                Dependencies = Array.Empty<ITaskItem>();
             }
 
             return !Log.HasLoggedErrors;

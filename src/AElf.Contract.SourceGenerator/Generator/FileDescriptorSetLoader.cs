@@ -1,4 +1,3 @@
-using AElf;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
 
@@ -6,7 +5,7 @@ namespace AElf.Contract.SourceGenerator;
 
 public static class FileDescriptorSetLoader
 {
-    private static readonly ExtensionRegistry ExtensionRegistry = new();
+    public static readonly ExtensionRegistry ExtensionRegistry = new();
 
     static FileDescriptorSetLoader()
     {

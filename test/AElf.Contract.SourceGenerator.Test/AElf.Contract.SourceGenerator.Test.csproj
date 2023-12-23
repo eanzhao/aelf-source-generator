@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <AdditionalFiles Include="protobuf\*.proto" GenerateType="Code">
+        <AdditionalFiles Include="protobuf\*.proto">
             <GenerateType>Code</GenerateType>
             <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>

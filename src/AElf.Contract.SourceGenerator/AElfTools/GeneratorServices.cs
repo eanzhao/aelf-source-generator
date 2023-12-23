@@ -31,7 +31,7 @@ namespace AElf.Tools
         protected GeneratorServices(TaskLoggingHelper log) { Log = log; }
 
         // Obtain a service for the given language (csharp).
-        public static GeneratorServices GetForLanguage(string lang, TaskLoggingHelper log)
+        public static GeneratorServices? GetForLanguage(string lang, TaskLoggingHelper log)
         {
             if (lang.EqualNoCase("csharp")) { return new CSharpGeneratorServices(log); }
             // if (lang.EqualNoCase("cpp")) { return new CppGeneratorServices(log); }
@@ -142,20 +142,19 @@ namespace AElf.Tools
 
         public override string[] GetPossibleOutputs(ITaskItem protoItem)
         {
-            bool doContract = ContractOutputPossible(protoItem);
+            var doContract = ContractOutputPossible(protoItem);
             var outputs = new string[doContract ? 2 : 1];
-            string proto = protoItem.ItemSpec;
-            string basename = Path.GetFileNameWithoutExtension(proto);
-            string outdir = protoItem.GetMetadata(Metadata.OutputDir);
-            string filename = LowerUnderscoreToUpperCamelProtocWay(basename);
+            var proto = protoItem.ItemSpec;
+            var basename = Path.GetFileNameWithoutExtension(proto);
+            var outdir = protoItem.GetMetadata(Metadata.OutputDir);
+            var filename = LowerUnderscoreToUpperCamelProtocWay(basename);
             outputs[0] = Path.Combine(outdir, filename) + ".cs";
 
-            if (doContract)
-            {
-                string contractDir = protoItem.GetMetadata(Metadata.ContractOutputDir);
-                filename = LowerUnderscoreToUpperCamelContractWay(basename);
-                outputs[1] = Path.Combine(contractDir, filename) + ".c.cs";
-            }
+            if (!doContract) return outputs;
+            var contractDir = protoItem.GetMetadata(Metadata.ContractOutputDir);
+            filename = LowerUnderscoreToUpperCamelContractWay(basename);
+            outputs[1] = Path.Combine(contractDir, filename) + ".c.cs";
+
             return outputs;
         }
 
