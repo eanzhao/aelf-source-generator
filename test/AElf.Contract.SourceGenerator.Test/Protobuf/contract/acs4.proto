@@ -16,6 +16,8 @@ option (aelf.identity) = "acs4";
 option csharp_namespace = "AElf.Standards.ACS4";
 
 service ConsensusContract {
+    //option (aelf.csharp_state) = "AElf.Standards.ACS4.State";
+    
     // Generate a consensus command based on the consensus contract state and the input public key.
     rpc GetConsensusCommand (google.protobuf.BytesValue) returns (ConsensusCommand) {
         option (aelf.is_view) = true;

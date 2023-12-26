@@ -1,6 +1,7 @@
+using ContractGenerator.Primitives;
 using Google.Protobuf.Reflection;
 
-namespace AElf.Contract.SourceGenerator;
+namespace ContractGenerator;
 
 public class EventTypeGenerator : AbstractGenerator
 {
@@ -39,16 +40,15 @@ public class EventTypeGenerator : AbstractGenerator
             InBlockWithSemicolon(() =>
             {
                 var fields = _messageDescriptor.Fields.InFieldNumberOrder();
-                PrintLine($"new {_messageDescriptor.Name}");
-                InBlock(() =>
+                foreach (var field in fields.Where(f => f.IndexedField()))
                 {
-                    foreach (var field in fields.Where(f => f.IndexedField()))
+                    PrintLine($"new {_messageDescriptor.Name}");
+                    InBlockWithComma(() =>
                     {
                         var propertyName = field.GetPropertyName();
-                        PrintLine($"{propertyName} = {propertyName},");
-                    } 
-                });
-
+                        PrintLine($"{propertyName} = {propertyName}");
+                    });
+                }
             });
         });
     }

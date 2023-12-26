@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace AElf.Contract.SourceGenerator;
+namespace ContractGenerator.Primitives;
 
 public static class CommonPrimitives
 {

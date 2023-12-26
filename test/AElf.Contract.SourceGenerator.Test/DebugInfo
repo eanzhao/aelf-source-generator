@@ -32,3 +32,27 @@ build_property.usingmicrosoftnetsdkweb:
         return FileDescriptor.BuildFromByteStrings(files, ExtensionRegistry);
         
 /Users/zhaoyiqi/Code/aelf-contract-source-generator/tools/macosx_x64/protoc --csharp_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf --csharp_opt=internal_access --descriptor_set_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf/set.pb --proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf --proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/build/native/include --dependency_out=obj/Debug/net6.0/43aa139d559bc43a_contract.protodep --error_format=msvs /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf/contract.proto
+
+/Users/zhaoyiqi/Code/aelf-contract-source-generator/tools/macosx_x64/protoc \
+--include_imports \
+--csharp_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Protobuf/contract \
+--descriptor_set_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Protobuf/contract/contract.pb \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Protobuf/contract \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/build/native/include \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Protobuf \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Protobuf/base \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Protobuf/message \
+--dependency_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/ContractGenerator.Test/obj/Debug/net6.0/19f865c82e13267a_contract.protodep \
+--error_format=msvs \
+/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/Protobuf/contract/contract.proto
+
+/Users/zhaoyiqi/Code/aelf-contract-source-generator/tools/macosx_x64/protoc \
+--include_imports \
+--csharp_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf/contract \
+--descriptor_set_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf/contract/token_contract_impl.pb \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf/contract \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/build/native/include \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf \
+--dependency_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/ContractGenerator.Test/obj/Debug/net6.0/86124ef869f66e45_token_contract_impl.protodep \
+--error_format=msvs \
+/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf/contract/token_contract_impl.proto

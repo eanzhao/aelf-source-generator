@@ -1,7 +1,8 @@
+using AElf;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
 
-namespace AElf.Contract.SourceGenerator;
+namespace ContractGenerator;
 
 public static class FileDescriptorSetLoader
 {

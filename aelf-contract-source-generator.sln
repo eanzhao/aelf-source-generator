@@ -15,9 +15,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BE86B0E8-BFCA-444B-A22A-25B6935CB943}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "native", "native", "{4C85D044-2E17-4689-AA62-22E9F9DEE6EE}"
-	ProjectSection(SolutionItems) = preProject
-		build\native\AElf.Tools.props = build\native\AElf.Tools.props
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{F8B4D81B-210A-43AC-9DFA-04168DF43D4A}"
 EndProject

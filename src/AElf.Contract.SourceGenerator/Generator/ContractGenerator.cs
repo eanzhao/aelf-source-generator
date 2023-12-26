@@ -1,7 +1,8 @@
+using ContractGenerator.Primitives;
 using Google.Protobuf.Compiler;
 using Google.Protobuf.Reflection;
 
-namespace AElf.Contract.SourceGenerator;
+namespace ContractGenerator;
 
 //This is the main entry-point into this project and is exposed to external users
 public class ContractGenerator

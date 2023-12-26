@@ -1,4 +1,4 @@
-namespace AElf.Contract.SourceGenerator;
+namespace ContractGenerator;
 
 public static class Utils
 {

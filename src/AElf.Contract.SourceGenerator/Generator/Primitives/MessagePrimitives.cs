@@ -1,7 +1,7 @@
 using AElf;
 using Google.Protobuf.Reflection;
 
-namespace AElf.Contract.SourceGenerator;
+namespace ContractGenerator.Primitives;
 
 public static class MessagePrimitives
 {
@@ -11,6 +11,7 @@ public static class MessagePrimitives
     /// </summary>
     public static bool IsEventMessageType(this MessageDescriptor message)
     {
-        return message.GetOptions() != null && message.GetOptions().GetExtension(OptionsExtensions.IsEvent);
+        if (message.GetOptions() == null) return false;
+        return message.GetOptions().GetExtension(OptionsExtensions.IsEvent);
     }
 }

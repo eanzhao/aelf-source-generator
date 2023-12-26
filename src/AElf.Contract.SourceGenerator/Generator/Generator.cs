@@ -1,7 +1,7 @@
 using AElf;
 using Google.Protobuf.Reflection;
 
-namespace AElf.Contract.SourceGenerator;
+namespace ContractGenerator;
 
 public partial class Generator : AbstractGenerator
 {
@@ -22,7 +22,7 @@ public partial class Generator : AbstractGenerator
         PrintLine($"{AccessLevel} static partial class {ServiceContainerClassName}");
         InBlock(() =>
         {
-            PrintLine($"static readonly string {ServiceFieldName} = \"{_serviceDescriptor.FullName}\";");
+            PrintLine(@$"static readonly string {ServiceFieldName} = ""{_serviceDescriptor.FullName}"";");
 
             ___EmptyLine___();
             Marshallers();
@@ -144,7 +144,11 @@ public partial class Generator : AbstractGenerator
 
     private static bool IsViewOnlyMethod(MethodDescriptor method)
     {
-        return method.GetOptions() != null && method.GetOptions().GetExtension(OptionsExtensions.IsView);
+        if (method.GetOptions() == null)
+        {
+            return false;
+        }
+        return method.GetOptions().GetExtension(OptionsExtensions.IsView);
     }
 
     /// <summary>

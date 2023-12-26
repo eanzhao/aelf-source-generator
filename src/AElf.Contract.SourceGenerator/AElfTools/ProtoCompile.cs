@@ -449,11 +449,11 @@ namespace AElf.Tools
             cmd.AddArg("--include_imports");
             cmd.AddSwitchMaybe(Generator + "_out", TrimEndSlash(OutputDir));
             cmd.AddSwitchMaybe(Generator + "_opt", OutputOptions);
+            cmd.AddSwitchMaybe("descriptor_set_out",
+                Protobuf.First().ItemSpec.Replace(".proto", ".pb"));
+            //throw new Exception($"pb test: {Protobuf.First().ItemSpec.Replace(".proto", ".pb")}");
             if (ProtoPath != null)
             {
-                cmd.AddSwitchMaybe("descriptor_set_out",
-                    Protobuf.First().ItemSpec.Replace(".proto", ".pb"));
-                //throw new Exception($"pb test: {Protobuf.First().ItemSpec.Replace(".proto", ".pb")}");
                 foreach (var path in ProtoPath)
                 {
                     cmd.AddSwitchMaybe("proto_path", TrimEndSlash(path!));

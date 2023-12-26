@@ -11,13 +11,14 @@ namespace ContractGenerator.Test;
 public class UnitTest1
 {
     const string domainDir = "/Users/zhaoyiqi/Code/aelf-contract-source-generator";
-    const string protoPath = "/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf/base/acs0.proto";
+    const string protoPath = "/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf/contract/token_contract_impl.proto";
 
     [Fact]
     public void ProtoCompileTest()
     {
         var name = Path.GetFileNameWithoutExtension(protoPath);
         var location = Path.GetDirectoryName(protoPath);
+        var parentPath = Directory.GetParent(location!)!.ToString();
         var outputDir = $"{location}";
         var compiler = new ProtoCompile
         {
@@ -31,16 +32,17 @@ public class UnitTest1
             {
                 location!,
                 $"{domainDir}/build/native/include",
+                parentPath,
+                $"{parentPath}/base",
+                $"{parentPath}/message",
             },
             ProtoDepDir = "/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/ContractGenerator.Test/obj/Debug/net6.0/",
             OutputDir = outputDir,
-            //OutputOptions = new[] { "file_extension=.g.cs" },
-            //ContractOutputOptions = new[] { "stub", "internal_access" },
             BuildEngine = new NaiveBuildEngine(),
         };
         compiler.Execute();
         var files = compiler.GeneratedFiles;
-        var pbFile = $"{outputDir}/acs0.pb";
+        var pbFile = $"{outputDir}/{name}.pb";
 
         if (files == null) return;
         foreach (var file in files)
@@ -52,7 +54,7 @@ public class UnitTest1
             var fileDescriptors = FileDescriptorSetLoader.Load(set.File);
             File.Delete(pbFile);
             var options = ParameterParser.Parse(new []{"base"});
-            var outputFiles = AElf.Contract.SourceGenerator.ContractGenerator.Generate(fileDescriptors, options);
+            var outputFiles = ContractGenerator.Generate(fileDescriptors, options);
             foreach (var outputFile in outputFiles)
             {
                 var fileName = outputFile.Name;

@@ -23,4 +23,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Protobuf\message\" />
+    </ItemGroup>
+
 </Project>
