@@ -56,3 +56,16 @@ build_property.usingmicrosoftnetsdkweb:
 --dependency_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/ContractGenerator.Test/obj/Debug/net6.0/86124ef869f66e45_token_contract_impl.protodep \
 --error_format=msvs \
 /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf/contract/token_contract_impl.proto
+
+/Users/zhaoyiqi/Code/aelf-contract-source-generator/tools/macosx_x64/protoc \
+--include_imports \
+--csharp_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/Protobuf/message \
+--descriptor_set_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/Protobuf/message/authority_info.pb \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/Protobuf/message \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/build/native/include \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/Protobuf \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/Protobuf/base \
+--proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/Protobuf/message \
+--dependency_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/c52602d22f2079be_authority_info.protodep \
+--error_format=msvs \
+/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/bin/Debug/net6.0/Protobuf/message/authority_info.proto

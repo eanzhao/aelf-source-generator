@@ -12,6 +12,7 @@
         <PackageReference Include="AElf.CSharp.Core" Version="1.6.0" />
         <PackageReference Include="Google.Protobuf" Version="3.24.3" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0"/>
+        <PackageReference Include="Shouldly" Version="4.2.1" />
         <PackageReference Include="xunit" Version="2.4.1"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,5 +24,22 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing.XUnit" Version="1.1.1" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.8.0" />
+    </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\AElf.Contract.SourceGenerator\AElf.Contract.SourceGenerator.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\AElf.Contract.SourceGenerator\AElf.Contract.SourceGenerator.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Protobuf\*\*.proto">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
 </Project>
