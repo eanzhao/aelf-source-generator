@@ -26,13 +26,17 @@ public class ContractGenerator
             var fileName = file.GetOutputCSharpFilename();
             if (fileName == "") return output;
 
-            output.Add(
-                new CodeGeneratorResponse.Types.File
-                {
-                    Name = fileName,
-                    Content = generatedCsCodeBody
-                }
-            );
+            // Only generate specific proto files, don't generate "import proto".
+            if (file == fileDescriptors.Last())
+            {
+                output.Add(
+                    new CodeGeneratorResponse.Types.File
+                    {
+                        Name = fileName,
+                        Content = generatedCsCodeBody
+                    }
+                );
+            }
         }
 
         return output;

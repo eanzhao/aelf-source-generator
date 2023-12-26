@@ -11,10 +11,6 @@ public static class MessagePrimitives
     /// </summary>
     public static bool IsEventMessageType(this MessageDescriptor message)
     {
-        if (message.ToProto().Options == null)
-        {
-            return false;
-        }
-        return message.GetOptions().GetExtension(OptionsExtensions.IsEvent);
+        return message.GetOptions() != null && message.GetOptions().GetExtension(OptionsExtensions.IsEvent);
     }
 }

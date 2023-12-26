@@ -1,4 +1,3 @@
-using AElf;
 using Google.Protobuf.Reflection;
 
 namespace AElf.Contract.SourceGenerator;
@@ -20,8 +19,20 @@ public partial class Generator
         {
             var methods = GetFullMethod();
             foreach (var method in methods)
+            {
+#if VIRTUAL_METHOD
                 PrintLine(
-                    $"public abstract {GetMethodReturnTypeServer(method)} {method.Name}({GetMethodRequestParamServer(method)}{GetMethodResponseStreamMaybe(method)});");
+                    $"public virtual {GetMethodReturnTypeServer(method)} {method.Name}({GetMethodRequestParamServer(method)}{GetMethodResponseStreamMaybe(method)})");
+                PrintLine("{");
+                Indent();
+                PrintLine("throw new global::System.NotImplementedException();");
+                Outdent();
+                PrintLine("}");
+#else
+                PrintLine(
+                      $"public abstract {GetMethodReturnTypeServer(method)} {method.Name}({GetMethodRequestParamServer(method)}{GetMethodResponseStreamMaybe(method)});");
+#endif
+            }
         });
     }
 
@@ -36,16 +47,18 @@ public partial class Generator
             Indent();
             PrintLine(".AddDescriptors(Descriptors)");
             var methods = GetFullMethod();
-            foreach (var method in methods.SkipLast(1))
+            if (methods.Count > 0)
             {
+                foreach (var method in methods.SkipLast(1))
+                {
+                    PrintLine(
+                        $".AddMethod({GetMethodFieldName(method)}, serviceImpl.{method.Name})");
+                }
+
+                var lastMethod = methods.Last();
                 PrintLine(
-                    $".AddMethod({GetMethodFieldName(method)}, serviceImpl.{method.Name})");
+                    $".AddMethod({GetMethodFieldName(lastMethod)}, serviceImpl.{lastMethod.Name}).Build();");
             }
-
-            var lastMethod = methods.Last();
-            PrintLine(
-                $".AddMethod({GetMethodFieldName(lastMethod)}, serviceImpl.{lastMethod.Name}).Build();");
-
             Outdent();
             Outdent();
         });
@@ -56,7 +69,12 @@ public partial class Generator
 
     private string GetStateTypeName()
     {
-        return _serviceDescriptor.GetOptions()?.GetExtension(OptionsExtensions.CsharpState);
+        // If there has no option (aelf.csharp_state) = "XXX" in proto files, state name will return empty string. Such as base proto.
+        if (_serviceDescriptor.GetOptions() == null)
+        {
+            return "";
+        }
+        return _serviceDescriptor.GetOptions().GetExtension(OptionsExtensions.CsharpState);
     }
 
 

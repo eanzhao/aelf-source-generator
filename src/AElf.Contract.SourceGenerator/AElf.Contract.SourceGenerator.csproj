@@ -38,8 +38,6 @@
     </Target>
 
     <ItemGroup Label="NuGet package assets">
-        <None Pack="true" PackagePath="..\..\build" Include="..\..\build\**\*.xml; ..\..\build\**\*.props; ..\..\build\**\*.targets;" LinkBase="build" Visible="false"
-            CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
         <None Pack="true" PackagePath="..\..\tools" Include="..\..\tools\**\*.*" LinkBase="tools" Visible="false"
               CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
         <None Pack="true" PackagePath="..\..\build\native\include" Include="..\..\build\native\include\**\*.proto" LinkBase="build\native\include" Visible="false"

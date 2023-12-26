@@ -13,32 +13,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{7FA31537-DB09-4DE8-BCDB-1BDE6F2470C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{BE86B0E8-BFCA-444B-A22A-25B6935CB943}"
-	ProjectSection(SolutionItems) = preProject
-		build\AElf.Tools.props = build\AElf.Tools.props
-		build\AElf.Tools.targets = build\AElf.Tools.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_contract", "_contract", "{9BD79C72-9DA0-4FD8-8F8B-CAA15D70E926}"
-	ProjectSection(SolutionItems) = preProject
-		build\_contract\README = build\_contract\README
-		build\_contract\Contract.CSharp.xml = build\_contract\Contract.CSharp.xml
-		build\_contract\_Contract.Tools.props = build\_contract\_Contract.Tools.props
-		build\_contract\_Contract.Tools.targets = build\_contract\_Contract.Tools.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_patch", "_patch", "{9C3FBE6E-8B75-40D7-8F72-E5D0FA81FEE6}"
-	ProjectSection(SolutionItems) = preProject
-		build\_patch\Patch.Tools.props = build\_patch\Patch.Tools.props
-		build\_patch\Patch.Tools.targets = build\_patch\Patch.Tools.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_protobuf", "_protobuf", "{2183C8A4-46C3-4B34-B842-62DC8F27A8B6}"
-	ProjectSection(SolutionItems) = preProject
-		build\_protobuf\README = build\_protobuf\README
-		build\_protobuf\Protobuf.CSharp.xml = build\_protobuf\Protobuf.CSharp.xml
-		build\_protobuf\Google.Protobuf.Tools.props = build\_protobuf\Google.Protobuf.Tools.props
-		build\_protobuf\Google.Protobuf.Tools.targets = build\_protobuf\Google.Protobuf.Tools.targets
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "native", "native", "{4C85D044-2E17-4689-AA62-22E9F9DEE6EE}"
 	ProjectSection(SolutionItems) = preProject
@@ -73,22 +47,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "linux_x64", "linux_x64", "{89F9D37D-BD89-43C4-8C47-97BDBFDB5290}"
 	ProjectSection(SolutionItems) = preProject
 		tools\linux_x64\protoc = tools\linux_x64\protoc
-		tools\linux_x64\AElf.ContractPatcher = tools\linux_x64\AElf.ContractPatcher
-		tools\linux_x64\contract_csharp_plugin = tools\linux_x64\contract_csharp_plugin
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "macosx_x64", "macosx_x64", "{331D6B6E-3C0F-463E-B5A6-B53CE9AAD0BC}"
 	ProjectSection(SolutionItems) = preProject
 		tools\macosx_x64\protoc = tools\macosx_x64\protoc
-		tools\macosx_x64\AElf.ContractPatcher = tools\macosx_x64\AElf.ContractPatcher
-		tools\macosx_x64\contract_csharp_plugin = tools\macosx_x64\contract_csharp_plugin
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "windows_x64", "windows_x64", "{98E67327-8C0C-4AF7-859F-81ED987A9451}"
 	ProjectSection(SolutionItems) = preProject
 tools\windows_x64\protoc.exe = tools\windows_x64\protoc.exe
-		tools\windows_x64\AElf.ContractPatcher.exe = tools\windows_x64\AElf.ContractPatcher.exe
-		tools\windows_x64\contract_csharp_plugin.exe = tools\windows_x64\contract_csharp_plugin.exe
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AElf.Contracts.Test", "test\AElf.Contracts.Test\AElf.Contracts.Test.csproj", "{A4370289-10B0-40BF-83CC-96B721D3FC91}"
@@ -102,9 +70,6 @@ Global
 		{5608D4BF-8D79-4D45-A2C3-E6F5BB5B2000} = {EFAF3F87-2AC1-487F-95EE-30F34DB967E3}
 		{A8067B44-73E6-4B78-B5B3-C6D13815ACEE} = {383B4395-971E-4230-8374-7FD69679DEF9}
 		{5D9E1E1E-75CB-4926-A52A-6075FCE33C70} = {383B4395-971E-4230-8374-7FD69679DEF9}
-		{9BD79C72-9DA0-4FD8-8F8B-CAA15D70E926} = {BE86B0E8-BFCA-444B-A22A-25B6935CB943}
-		{9C3FBE6E-8B75-40D7-8F72-E5D0FA81FEE6} = {BE86B0E8-BFCA-444B-A22A-25B6935CB943}
-		{2183C8A4-46C3-4B34-B842-62DC8F27A8B6} = {BE86B0E8-BFCA-444B-A22A-25B6935CB943}
 		{4C85D044-2E17-4689-AA62-22E9F9DEE6EE} = {BE86B0E8-BFCA-444B-A22A-25B6935CB943}
 		{F8B4D81B-210A-43AC-9DFA-04168DF43D4A} = {4C85D044-2E17-4689-AA62-22E9F9DEE6EE}
 		{8D42D4BD-4E0C-4868-A641-EABB828D1213} = {F8B4D81B-210A-43AC-9DFA-04168DF43D4A}

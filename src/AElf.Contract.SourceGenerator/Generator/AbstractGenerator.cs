@@ -40,7 +40,7 @@ public abstract class AbstractGenerator : IndentPrinter
         Indent();
         a();
         Outdent();
-        PrintLine("};");
+        PrintLine("},");
     }
 
     public abstract string? Generate();

@@ -63,6 +63,11 @@ public class ProtoUtils
     //TODO Implementation https://github.com/protocolbuffers/protobuf/blob/e57166b65a6d1d55fc7b18beaae000565f617f22/src/google/protobuf/compiler/csharp/names.cc#L66
     public static string GetFileNamespace(FileDescriptor fileDescriptor)
     {
+        // If there has no option csharp_namespace = "XXX" in proto files, state name will return empty string. Such as message proto.
+        if (fileDescriptor.GetOptions() == null)
+        {
+            return "";
+        }
         return fileDescriptor.GetOptions().HasCsharpNamespace
             ? fileDescriptor.GetOptions().CsharpNamespace
             : fileDescriptor.Package.UnderscoresToCamelCase(true, true);

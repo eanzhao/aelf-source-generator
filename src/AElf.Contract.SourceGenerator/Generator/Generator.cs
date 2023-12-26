@@ -144,7 +144,7 @@ public partial class Generator : AbstractGenerator
 
     private static bool IsViewOnlyMethod(MethodDescriptor method)
     {
-        return method.GetOptions().GetExtension(OptionsExtensions.IsView);
+        return method.GetOptions() != null && method.GetOptions().GetExtension(OptionsExtensions.IsView);
     }
 
     /// <summary>
