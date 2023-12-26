@@ -32,7 +32,7 @@ public class ContractCodeGenerator : IIncrementalGenerator
                     return;
                 }
 
-                var dir = Path.GetDirectoryName(protoFile.Path)?.Split(Path.PathSeparator).LastOrDefault();
+                var dir = Path.GetDirectoryName(protoFile.Path)?.Split(Path.DirectorySeparatorChar).LastOrDefault();
                 var options = ParameterParser.Parse(GetGeneratorOptions(dir));
                 var outputFiles = ContractGenerator.ContractGenerator.Generate(fileDescriptors, options);
                 foreach (var outputFile in outputFiles)

@@ -11,7 +11,8 @@ namespace ContractGenerator.Test;
 public class UnitTest1
 {
     const string domainDir = "/Users/zhaoyiqi/Code/aelf-contract-source-generator";
-    const string protoPath = "/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf/contract/token_contract_impl.proto";
+    const string protoPath = "/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Test/Protobuf/" +
+                             "base/acs0.proto";
 
     [Fact]
     public void ProtoCompileTest()
@@ -44,6 +45,8 @@ public class UnitTest1
         var files = compiler.GeneratedFiles;
         var pbFile = $"{outputDir}/{name}.pb";
 
+        var dir = Path.GetDirectoryName(protoPath)?.Split(Path.DirectorySeparatorChar).LastOrDefault();
+
         if (files == null) return;
         foreach (var file in files)
         {
@@ -53,7 +56,7 @@ public class UnitTest1
             var set = messageParser.WithExtensionRegistry(FileDescriptorSetLoader.ExtensionRegistry).ParseFrom(stream);
             var fileDescriptors = FileDescriptorSetLoader.Load(set.File);
             File.Delete(pbFile);
-            var options = ParameterParser.Parse(new []{"base"});
+            var options = ParameterParser.Parse(GetGeneratorOptions(dir));
             var outputFiles = ContractGenerator.Generate(fileDescriptors, options);
             foreach (var outputFile in outputFiles)
             {
@@ -61,6 +64,27 @@ public class UnitTest1
                 var content = outputFile.Content;
             }
         }
+    }
+    
+    private string[] GetGeneratorOptions(string? dir)
+    {
+        if (dir == null)
+        {
+            return Array.Empty<string>();
+        }
+
+        switch (dir)
+        {
+            case "base":
+            case "message":
+                return new[] { "nocontract" };
+            case "reference":
+                return new[] { "reference", "internal_access" };
+            case "stub":
+                return new[] { "stub", "internal_access" };
+        }
+
+        return Array.Empty<string>();
     }
 
     [Fact]

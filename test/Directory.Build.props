@@ -16,4 +16,12 @@
         </AdditionalFiles>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="Protobuf\base\" />
+        <Folder Include="Protobuf\message\" />
+        <Folder Include="Protobuf\contract\" />
+        <Folder Include="Protobuf\reference\" />
+        <Folder Include="Protobuf\stub\" />
+    </ItemGroup>
+
 </Project>
