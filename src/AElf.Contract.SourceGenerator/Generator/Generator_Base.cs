@@ -60,6 +60,10 @@ public partial class Generator
                 PrintLine(
                     $".AddMethod({GetMethodFieldName(lastMethod)}, serviceImpl.{lastMethod.Name}).Build();");
             }
+            else
+            {
+                PrintLine(".Build();");
+            }
             Outdent();
             Outdent();
         });
