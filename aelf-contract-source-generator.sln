@@ -91,6 +91,8 @@ tools\windows_x64\protoc.exe = tools\windows_x64\protoc.exe
 		tools\windows_x64\contract_csharp_plugin.exe = tools\windows_x64\contract_csharp_plugin.exe
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AElf.Contracts.Test", "test\AElf.Contracts.Test\AElf.Contracts.Test.csproj", "{A4370289-10B0-40BF-83CC-96B721D3FC91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,7 @@ Global
 		{89F9D37D-BD89-43C4-8C47-97BDBFDB5290} = {7FA31537-DB09-4DE8-BCDB-1BDE6F2470C0}
 		{331D6B6E-3C0F-463E-B5A6-B53CE9AAD0BC} = {7FA31537-DB09-4DE8-BCDB-1BDE6F2470C0}
 		{98E67327-8C0C-4AF7-859F-81ED987A9451} = {7FA31537-DB09-4DE8-BCDB-1BDE6F2470C0}
+		{A4370289-10B0-40BF-83CC-96B721D3FC91} = {383B4395-971E-4230-8374-7FD69679DEF9}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5608D4BF-8D79-4D45-A2C3-E6F5BB5B2000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -125,5 +128,9 @@ Global
 		{5D9E1E1E-75CB-4926-A52A-6075FCE33C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D9E1E1E-75CB-4926-A52A-6075FCE33C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D9E1E1E-75CB-4926-A52A-6075FCE33C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4370289-10B0-40BF-83CC-96B721D3FC91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4370289-10B0-40BF-83CC-96B721D3FC91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4370289-10B0-40BF-83CC-96B721D3FC91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4370289-10B0-40BF-83CC-96B721D3FC91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

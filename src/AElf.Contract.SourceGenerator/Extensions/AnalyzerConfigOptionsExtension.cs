@@ -23,11 +23,17 @@ public static class AnalyzerConfigOptionsExtensions
         return output;
     }
 
-    public static GenerateType GetGenerateType(this AnalyzerConfigOptions options)
+    public static string? GetContractOutputOptions(this AnalyzerConfigOptions options)
     {
-        var key = "build_metadata.additionalfiles.generatetype";
-        options.TryGetValue(key, out var generateType);
-        Enum.TryParse(generateType, true, out GenerateType gt);
-        return gt;
+        const string key = "build_metadata.additionalfiles.contractoutputoptions";
+        options.TryGetValue(key, out var value);
+        return value;
+    }
+
+    public static string? GetAccess(this AnalyzerConfigOptions options)
+    {
+        const string key = "build_metadata.additionalfiles.access";
+        options.TryGetValue(key, out var value);
+        return value;
     }
 }

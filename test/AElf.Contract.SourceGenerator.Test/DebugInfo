@@ -30,3 +30,5 @@ build_property.usingmicrosoftnetsdkweb:
         };
         files.AddRange(protos.Select(f => f.ToByteString()).ToList());
         return FileDescriptor.BuildFromByteStrings(files, ExtensionRegistry);
+        
+/Users/zhaoyiqi/Code/aelf-contract-source-generator/tools/macosx_x64/protoc --csharp_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf --csharp_opt=internal_access --descriptor_set_out=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf/set.pb --proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf --proto_path=/Users/zhaoyiqi/Code/aelf-contract-source-generator/build/native/include --dependency_out=obj/Debug/net6.0/43aa139d559bc43a_contract.protodep --error_format=msvs /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contract.SourceGenerator.Test/protobuf/contract.proto

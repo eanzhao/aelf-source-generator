@@ -10,7 +10,6 @@
 
     <ItemGroup>
         <PackageReference Include="AElf.CSharp.Core" Version="1.6.0" />
-        <PackageReference Include="AElf.Sdk.CSharp" Version="1.6.0" />
         <PackageReference Include="Google.Protobuf" Version="3.24.3" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0"/>
         <PackageReference Include="xunit" Version="2.4.1"/>
@@ -23,20 +22,5 @@
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
     </ItemGroup>
-
-    <ItemGroup>
-        <AdditionalFiles Include="protobuf\*.proto">
-            <GenerateType>Code</GenerateType>
-            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </AdditionalFiles>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\..\src\AElf.Contract.SourceGenerator\AElf.Contract.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-    </ItemGroup>
-
-    <!-- Manually reference the generator props because we locally reference the generator. When added via NuGet this happens automatically -->
-    <Import Project="..\..\src\AElf.Contract.SourceGenerator\GenerateType.props" />
 
 </Project>

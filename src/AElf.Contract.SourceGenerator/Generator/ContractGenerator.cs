@@ -10,7 +10,7 @@ public class ContractGenerator
     ///     Generates a set of C# files from the input stream containing the proto source. This is the primary entry-point into
     ///     the ContractPlugin.
     /// </summary>
-    public IReadOnlyList<CodeGeneratorResponse.Types.File> Generate(IEnumerable<FileDescriptor> fileDescriptors,
+    public static IReadOnlyList<CodeGeneratorResponse.Types.File> Generate(IEnumerable<FileDescriptor> fileDescriptors,
         GeneratorOptions options)
     {
         var output = new List<CodeGeneratorResponse.Types.File>();

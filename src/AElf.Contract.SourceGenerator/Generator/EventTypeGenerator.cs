@@ -39,15 +39,16 @@ public class EventTypeGenerator : AbstractGenerator
             InBlockWithSemicolon(() =>
             {
                 var fields = _messageDescriptor.Fields.InFieldNumberOrder();
-                foreach (var field in fields.Where(f => f.IndexedField()))
+                PrintLine($"new {_messageDescriptor.Name}");
+                InBlock(() =>
                 {
-                    PrintLine($"new {_messageDescriptor.Name}");
-                    InBlockWithComma(() =>
+                    foreach (var field in fields.Where(f => f.IndexedField()))
                     {
                         var propertyName = field.GetPropertyName();
-                        PrintLine($"{propertyName} = {propertyName}");
-                    });
-                }
+                        PrintLine($"{propertyName} = {propertyName},");
+                    } 
+                });
+
             });
         });
     }

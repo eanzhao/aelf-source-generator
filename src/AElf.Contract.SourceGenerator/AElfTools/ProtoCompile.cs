@@ -320,7 +320,7 @@ namespace AElf.Tools
         /// in order. If not given, the current working directory is used.
         /// Switch: --proto_path.
         /// </summary>
-        public string?[] ProtoPath { get; set; }
+        public string?[]? ProtoPath { get; set; }
 
         /// <summary>
         /// Generated code directory. The generator property determines the language.
@@ -340,26 +340,6 @@ namespace AElf.Tools
         /// For example, "--experimental_allow_proto3_optional"
         /// </summary>
         public string[]? AdditionalProtocArguments { get; set; }
-
-        /// <summary>
-        /// Full path to the contract plugin executable. If specified, contract generation
-        /// is enabled for the files.
-        /// Switch: --plugin=protoc-gen-contract=
-        /// </summary>
-        public string? ContractPluginExe { get; set; }
-
-        /// <summary>
-        /// Generated contract  directory. The generator property determines the
-        /// language. If contract is enabled but this is not given, OutputDir is used.
-        /// Switch: --contract_out=
-        /// </summary>
-        public string? ContractOutputDir { get; set; }
-
-        /// <summary>
-        /// contract Codegen options. See also OptionsFromMetadata.
-        /// --contract_opt=opt1,opt2=val (comma-separated).
-        /// </summary>
-        public string[]? ContractOutputOptions { get; set; }
 
         /// <summary>
         /// List of files written in addition to generated outputs. Includes a
@@ -395,7 +375,7 @@ namespace AElf.Tools
         protected override bool ValidateParameters()
         {
             // Part of proto command line switches, must be lowercased.
-            Generator = Generator.ToLowerInvariant();
+            Generator = Generator?.ToLowerInvariant();
             if (!System.Array.Exists(s_supportedGenerators, g => g == Generator))
             {
                 Log.LogError("Invalid value for Generator='{0}'. Supported generators: {1}",
@@ -407,7 +387,7 @@ namespace AElf.Tools
                 Log.LogError("Properties ProtoDepDir and DependencyOut may not be both specified");
             }
 
-            if (Protobuf.Length > 1 && (ProtoDepDir != null || DependencyOut != null))
+            if (Protobuf?.Length > 1 && (ProtoDepDir != null || DependencyOut != null))
             {
                 Log.LogError("Proto compiler currently allows only one input when " +
                              "--dependency_out is specified (via ProtoDepDir or DependencyOut). " +
@@ -418,17 +398,6 @@ namespace AElf.Tools
             if (ProtoDepDir != null)
             {
                 DependencyOut = DepFileUtil.GetDepFilenameForProto(ProtoDepDir, Protobuf[0].ItemSpec);
-            }
-
-            if (ContractPluginExe == null)
-            {
-                ContractOutputOptions = null;
-                ContractOutputDir = null;
-            }
-            else if (ContractOutputDir == null)
-            {
-                // Use OutputDir for contract output if not specified otherwise by user.
-                ContractOutputDir = OutputDir;
             }
 
             return !Log.HasLoggedErrors && base.ValidateParameters();
@@ -477,20 +446,25 @@ namespace AElf.Tools
         protected override string GenerateResponseFileCommands()
         {
             var cmd = new ProtocResponseFileBuilder();
+            cmd.AddArg("--include_imports");
             cmd.AddSwitchMaybe(Generator + "_out", TrimEndSlash(OutputDir));
             cmd.AddSwitchMaybe(Generator + "_opt", OutputOptions);
-            //cmd.AddSwitchMaybe("plugin=protoc-gen-contract", ContractPluginExe);
-            //cmd.AddSwitchMaybe("contract_out", TrimEndSlash(ContractOutputDir));
-            //cmd.AddSwitchMaybe("contract_opt", ContractOutputOptions);
-            cmd.AddSwitchMaybe("descriptor_set_out", $"{OutputDir}/set.pb");
             if (ProtoPath != null)
             {
-                foreach (string path in ProtoPath)
+                cmd.AddSwitchMaybe("descriptor_set_out",
+                    Protobuf.First().ItemSpec.Replace(".proto", ".pb"));
+                //throw new Exception($"pb test: {Protobuf.First().ItemSpec.Replace(".proto", ".pb")}");
+                foreach (var path in ProtoPath)
                 {
-                    cmd.AddSwitchMaybe("proto_path", TrimEndSlash(path));
+                    cmd.AddSwitchMaybe("proto_path", TrimEndSlash(path!));
                 }
             }
-            cmd.AddSwitchMaybe("dependency_out", DependencyOut);
+
+            if (DependencyOut != null)
+            {
+                cmd.AddSwitchMaybe("dependency_out", DependencyOut);
+            }
+
             cmd.AddSwitchMaybe("error_format", "msvs");
 
             if (AdditionalProtocArguments != null)
@@ -501,10 +475,14 @@ namespace AElf.Tools
                 }
             }
 
-            foreach (var proto in Protobuf)
+            if (Protobuf != null)
             {
-                cmd.AddArg(proto.ItemSpec);
+                foreach (var proto in Protobuf)
+                {
+                    cmd.AddArg(proto.ItemSpec);
+                }
             }
+
             var cmdStr = cmd.ToString();
             Log.LogMessage("command is: "+cmdStr);
             return cmdStr;
@@ -604,11 +582,6 @@ namespace AElf.Tools
             }
 
             base.LogEventsFromTextOutput(singleLine, messageImportance);
-        }
-
-        public string ReturnSth()
-        {
-            return UseCommandProcessor.ToString();
         }
 
         // Main task entry point.

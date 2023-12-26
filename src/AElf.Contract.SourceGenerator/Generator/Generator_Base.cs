@@ -56,7 +56,7 @@ public partial class Generator
 
     private string GetStateTypeName()
     {
-        return _serviceDescriptor.GetOptions().GetExtension(OptionsExtensions.CsharpState);
+        return _serviceDescriptor.GetOptions()?.GetExtension(OptionsExtensions.CsharpState);
     }
 
 

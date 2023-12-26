@@ -73,4 +73,43 @@ public static class ParameterParser
 
         return options;
     }
+
+    public static GeneratorOptions Parse(IEnumerable<string> parameters)
+    {
+        var options = new GeneratorOptions
+        {
+            GenerateEvent = true,
+            GenerateContract = true
+        };
+        foreach (var parameter in parameters)
+        {
+            switch (parameter)
+            {
+                case "stub":
+                    options.GenerateStub = true;
+                    options.GenerateEvent = true;
+                    options.GenerateContract = false;
+                    break;
+                case "reference":
+                    // Reference doesn't require an event
+                    options.GenerateReference = true;
+                    options.GenerateEvent = false;
+                    options.GenerateContract = false;
+                    break;
+                case "nocontract":
+                    options.GenerateContract = false;
+                    break;
+                case "noevent":
+                    options.GenerateEvent = false;
+                    break;
+                case "internal_access":
+                    options.InternalAccess = true;
+                    break;
+                case "":
+                    break;
+            }
+        }
+
+        return options;
+    }
 }

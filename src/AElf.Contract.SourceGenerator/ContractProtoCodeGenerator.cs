@@ -1,6 +1,9 @@
 using System.Diagnostics;
 using System.Text;
 using AElf.Tools;
+using Google.Protobuf;
+using Google.Protobuf.Compiler;
+using Google.Protobuf.Reflection;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 using Microsoft.CodeAnalysis;
@@ -8,14 +11,14 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace AElf.Contract.SourceGenerator;
 
-[Generator(LanguageNames.CSharp)]
+//[Generator(LanguageNames.CSharp)]
 public class ContractProtoCodeGenerator : IIncrementalGenerator
 {
+    const string domainDir = "/Users/zhaoyiqi/Code/aelf-contract-source-generator";
+
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         Debugger.Launch();
-
-        var currentDirectory = Environment.CurrentDirectory;
 
         var textFiles = context.AdditionalTextsProvider.Where(static file => file.Path.EndsWith(".proto"));
         context.RegisterSourceOutput(textFiles, (productionContext, protoFile) =>
@@ -24,42 +27,60 @@ public class ContractProtoCodeGenerator : IIncrementalGenerator
 
             var compiler = new ProtoCompile
             {
-                ToolExe = $"{currentDirectory}/tools/{GetPlatform()}/protoc",
+                ToolExe = $"{domainDir}/tools/macosx_x64/protoc",
+                //ToolExe = $"{CurrentDirectory}/tools/{GetPlatform()}/protoc",
                 Generator = "csharp",
-                ProtoDepDir = $"{currentDirectory}/build/native/include/aelf",
                 Protobuf = new ITaskItem[] { new TaskItem(protoFile.Path) },
-                OutputDir = currentDirectory,
-                OutputOptions = new[] { "file_extension=.g.cs" },
                 ProtoPath = new[]
                 {
                     location,
-                    $"{currentDirectory}/build/native/include"
+                    //$"{CurrentDirectory}/build/native/include"
+                    $"{domainDir}/build/native/include",
                 },
+                ProtoDepDir = $"{domainDir}/build",
+                OutputDir = Path.GetDirectoryName(protoFile.Path),
+                //OutputOptions = new[] { "file_extension=.g.cs" },
                 BuildEngine = new NaiveBuildEngine(),
             };
             compiler.Execute();
-            if (compiler.GeneratedFiles == null)
+            var generatedFiles = compiler.GeneratedFiles;
+            if (generatedFiles == null)
             {
+                File.Create($"/Users/zhaoyiqi/Code/aelf-contract-source-generator/{Path.GetFileNameWithoutExtension(protoFile.Path)}-no.txt");
                 return;
             }
 
-            foreach (var file in compiler.GeneratedFiles)
+            foreach (var file in generatedFiles)
             {
-                var text = Generate(file.ItemSpec);
-                productionContext.AddSource(Path.GetFileName(file.ItemSpec), SourceText.From(text, Encoding.UTF8));
+                File.Create($"/Users/zhaoyiqi/Code/aelf-contract-source-generator/aaaaaa{file.ItemSpec}.txt");
+                var protoFileName = Path.GetFileNameWithoutExtension(file.ItemSpec);
+                var responseFiles = Generate(protoFileName, new[] { "stub" });
+                foreach (var responseFile in responseFiles)
+                {
+                    File.Create($"/Users/zhaoyiqi/Code/aelf-contract-source-generator/--{responseFile.Name}.txt");
+            
+                    productionContext.AddSource(responseFile.Name,
+                        SourceText.From(responseFile.Content, Encoding.UTF8));
+                }
                 File.Delete(file.ItemSpec);
             }
         });
     }
 
-    private string Generate(string filePath)
+    private IReadOnlyList<CodeGeneratorResponse.Types.File> Generate(string protoFileName, string[] parameters)
     {
-        return File.ReadAllText(filePath);
-        // using var fileStream = File.Create(filePath);
-        // var request = CodeGeneratorRequest.Parser.ParseFrom(fileStream);
-        // var fileDescriptors = FileDescriptorSetLoader.Load(request.ProtoFile);
-        // return fileDescriptors.First().Name;
+        var pbFile = $"{CurrentDirectory}/{protoFileName}.pb";
+        var fileStream = File.OpenRead(pbFile);
+        var messageParser = new MessageParser<FileDescriptorSet>(() => new FileDescriptorSet());
+        var stream = new CodedInputStream(fileStream);
+        var set = messageParser.WithExtensionRegistry(FileDescriptorSetLoader.ExtensionRegistry).ParseFrom(stream);
+        var fileDescriptors = FileDescriptorSetLoader.Load(set.File);
+        File.Delete(pbFile);
+        var options = ParameterParser.Parse(parameters);
+        return ContractGenerator.Generate(fileDescriptors, options);
     }
+
+    public string CurrentDirectory => "/Users/zhaoyiqi/Code/aelf-contract-source-generator";//Environment.CurrentDirectory;
 
     private string GetPlatform()
     {

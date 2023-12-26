@@ -15,6 +15,10 @@
         <PackageReference Include="Google.Protobuf" Version="3.24.3" GeneratePathProperty="true" PrivateAssets="all" />
         <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.6.85" GeneratePathProperty="true" PrivateAssets="all" />
         <PackageReference Include="Microsoft.Build.Framework" Version="15.6.85" GeneratePathProperty="true" PrivateAssets="all" />
+        <PackageReference Include="AElf.CSharp.CodeOps" Version="1.6.0"  GeneratePathProperty="true" PrivateAssets="all" />
+        <PackageReference Include="AElf.Kernel.CodeCheck" Version="1.6.0"  GeneratePathProperty="true" PrivateAssets="all" />
+        <PackageReference Include="AElf.Kernel.SmartContract" Version="1.6.0"  GeneratePathProperty="true" PrivateAssets="all" />
+        <PackageReference Include="Mono.Cecil" Version="0.11.4"  GeneratePathProperty="true" PrivateAssets="all" />
     </ItemGroup>
 
     <PropertyGroup>
@@ -26,13 +30,20 @@
             <TargetPathWithTargetPlatformMoniker Include="$(PKGGoogle_Protobuf)\lib\netstandard2.0\Google.Protobuf.dll" IncludeRuntimeDependency="false" />
             <TargetPathWithTargetPlatformMoniker Include="$(PKGMicrosoft_Build_Utilities_Core)\lib\netstandard1.3\Microsoft.Build.Utilities.Core.dll" IncludeRuntimeDependency="false" />
             <TargetPathWithTargetPlatformMoniker Include="$(PKGMicrosoft_Build_Framework)\lib\netstandard1.3\Microsoft.Build.Framework.dll" IncludeRuntimeDependency="false" />
+            <TargetPathWithTargetPlatformMoniker Include="$(PKGAElf_CSharp_CodeOps)\lib\net6.0\AElf.CSharp.CodeOps.dll" IncludeRuntimeDependency="false" />
+            <TargetPathWithTargetPlatformMoniker Include="$(PKGAElf_Kernel_CodeCheck)\lib\net6.0\AElf.Kernel.CodeCheck.dll" IncludeRuntimeDependency="false" />
+            <TargetPathWithTargetPlatformMoniker Include="$(PKGAElf_Kernel_SmartContract)\lib\net6.0\AElf.Kernel.SmartContract.dll" IncludeRuntimeDependency="false" />
+            <TargetPathWithTargetPlatformMoniker Include="$(PKGMono_Cecil)\lib\netstandard2.0\Mono.Cecil.dll" IncludeRuntimeDependency="false" />
         </ItemGroup>
     </Target>
 
     <ItemGroup Label="NuGet package assets">
-        <None Pack="true" PackagePath="..\..\build" Include="..\..\build\**\*.xml; ..\..\build\**\*.props; ..\..\build\**\*.targets;" LinkBase="build" Visible="false" />
-        <None Pack="true" PackagePath="..\..\tools" Include="..\..\tools\**\*.*" LinkBase="tools" Visible="false" />
-        <None Pack="true" PackagePath="..\..\build\native\include" Include="..\..\build\native\include\**\*.proto" LinkBase="build\native\include" Visible="false" />
+        <None Pack="true" PackagePath="..\..\build" Include="..\..\build\**\*.xml; ..\..\build\**\*.props; ..\..\build\**\*.targets;" LinkBase="build" Visible="false"
+            CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
+        <None Pack="true" PackagePath="..\..\tools" Include="..\..\tools\**\*.*" LinkBase="tools" Visible="false"
+              CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
+        <None Pack="true" PackagePath="..\..\build\native\include" Include="..\..\build\native\include\**\*.proto" LinkBase="build\native\include" Visible="false"
+              CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
     </ItemGroup>
 
 </Project>
