@@ -1,6 +1,7 @@
 using System.Text;
 using AElf.Tools;
 using ContractGenerator;
+using ContractGenerator.Primitives;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Microsoft.Build.Framework;
@@ -35,7 +36,8 @@ public class ContractCodeGenerator : IIncrementalGenerator
                 var dir = Path.GetDirectoryName(protoFile.Path)?.Split(Path.DirectorySeparatorChar).LastOrDefault();
                 var options = ParameterParser.Parse(GetGeneratorOptions(dir));
                 var outputFiles = ContractGenerator.ContractGenerator.Generate(fileDescriptors, options);
-                foreach (var outputFile in outputFiles)
+                var outputFile = outputFiles.FirstOrDefault();
+                if (outputFile != null)
                 {
                     var fileName = outputFile.Name;
                     var content = outputFile.Content;
@@ -44,14 +46,15 @@ public class ContractCodeGenerator : IIncrementalGenerator
                         productionContext.AddSource(fileName, SourceText.From(content, Encoding.UTF8));
                         addedFiles.Add(fileName);
                     }
+                }
 
-                    var originalFileName = $"{fileName.Split('.').First()}.cs";
-                    if (!addedFiles.Contains(originalFileName))
-                    {
-                        productionContext.AddSource(originalFileName,
-                            SourceText.From(File.ReadAllText($"{location}/{originalFileName}"), Encoding.UTF8));
-                        addedFiles.Add(originalFileName);
-                    }
+                var originalFileName = Path.GetFileName(protoFile.Path).LowerUnderscoreToUpperCamel()
+                    .Replace(".proto", ".cs");
+                if (!addedFiles.Contains(originalFileName))
+                {
+                    productionContext.AddSource(originalFileName,
+                        SourceText.From(File.ReadAllText($"{location}/{originalFileName}"), Encoding.UTF8));
+                    addedFiles.Add(originalFileName);
                 }
             }
             catch (Exception e)

@@ -7,13 +7,15 @@ namespace AElf.Contract.SourceGenerator.Test;
 
 public class UnitTest
 {
-    [Fact]
-    public void Test()
+    [Theory]
+    [InlineData("message/authority_info.proto", 1)]
+    [InlineData("message/transaction_fee.proto", 2)]
+    public void Test(string file, int count)
     {
-        var filePath = $"{Environment.CurrentDirectory}/Protobuf/message/transaction_fee.proto";
+        var filePath = $"{Environment.CurrentDirectory}/Protobuf/{file}";
         var fileText = File.ReadAllText(filePath);
         var output = GetGeneratedOutput(new TestAdditionalFile(filePath, fileText));
-        output.Count().ShouldBe(2);
+        output.Count().ShouldBe(count);
     }
 
     private static IEnumerable<(string, string)> GetGeneratedOutput(params AdditionalText[] additionalFiles)
