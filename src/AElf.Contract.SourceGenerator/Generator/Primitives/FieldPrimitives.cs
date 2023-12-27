@@ -1,7 +1,7 @@
 using AElf;
 using Google.Protobuf.Reflection;
 
-namespace ContractGenerator.Primitives;
+namespace AElf.Contract.SourceGenerator.Generator.Primitives;
 
 public static class FieldPrimitives
 {

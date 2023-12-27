@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace ContractGenerator;
+namespace AElf.Contract.SourceGenerator.Generator;
 
 public class IndentPrinter
 {

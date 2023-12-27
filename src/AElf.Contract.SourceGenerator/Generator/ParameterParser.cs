@@ -1,6 +1,4 @@
-using ContractGenerator;
-
-namespace AElf.Contract.SourceGenerator;
+namespace AElf.Contract.SourceGenerator.Generator;
 
 public static class ParameterParser
 {

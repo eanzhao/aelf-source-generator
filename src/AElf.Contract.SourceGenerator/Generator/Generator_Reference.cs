@@ -1,6 +1,6 @@
-using ContractGenerator.Primitives;
+using AElf.Contract.SourceGenerator.Generator.Primitives;
 
-namespace ContractGenerator;
+namespace AElf.Contract.SourceGenerator.Generator;
 
 public partial class Generator
 {

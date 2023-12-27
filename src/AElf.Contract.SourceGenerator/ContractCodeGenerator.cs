@@ -1,7 +1,7 @@
 using System.Text;
+using AElf.Contract.SourceGenerator.Generator;
+using AElf.Contract.SourceGenerator.Generator.Primitives;
 using AElf.Tools;
-using ContractGenerator;
-using ContractGenerator.Primitives;
 using Google.Protobuf;
 using Google.Protobuf.Reflection;
 using Microsoft.Build.Framework;
@@ -35,7 +35,8 @@ public class ContractCodeGenerator : IIncrementalGenerator
 
                 var dir = Path.GetDirectoryName(protoFile.Path)?.Split(Path.DirectorySeparatorChar).LastOrDefault();
                 var options = ParameterParser.Parse(GetGeneratorOptions(dir));
-                var outputFiles = ContractGenerator.ContractGenerator.Generate(fileDescriptors, options);
+                var contractGenerator = new ContractGenerator();
+                var outputFiles = contractGenerator.Generate(fileDescriptors, options);
                 var outputFile = outputFiles.FirstOrDefault();
                 if (outputFile != null)
                 {
@@ -55,6 +56,15 @@ public class ContractCodeGenerator : IIncrementalGenerator
                     productionContext.AddSource(originalFileName,
                         SourceText.From(File.ReadAllText($"{location}/{originalFileName}"), Encoding.UTF8));
                     addedFiles.Add(originalFileName);
+                }
+
+                if (dir == "contract")
+                {
+                    var stateTypeName = fileDescriptors.Last().Services.Last().GetOptions()
+                        .GetExtension(OptionsExtensions.CsharpState);
+                    var output = new ContractStateGenerator().Generate(stateTypeName);
+                    productionContext.AddSource(output.Item1, SourceText.From(output.Item2, Encoding.UTF8));
+                    addedFiles.Add(output.Item1);
                 }
             }
             catch (Exception e)

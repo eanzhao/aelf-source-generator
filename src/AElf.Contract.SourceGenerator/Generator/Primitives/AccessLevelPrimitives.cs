@@ -1,4 +1,4 @@
-namespace ContractGenerator.Primitives;
+namespace AElf.Contract.SourceGenerator.Generator.Primitives;
 
 public static class AccessLevelPrimitives
 {

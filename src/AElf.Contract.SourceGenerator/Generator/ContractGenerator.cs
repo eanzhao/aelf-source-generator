@@ -1,8 +1,8 @@
-using ContractGenerator.Primitives;
+using AElf.Contract.SourceGenerator.Generator.Primitives;
 using Google.Protobuf.Compiler;
 using Google.Protobuf.Reflection;
 
-namespace ContractGenerator;
+namespace AElf.Contract.SourceGenerator.Generator;
 
 //This is the main entry-point into this project and is exposed to external users
 public class ContractGenerator
@@ -11,12 +11,13 @@ public class ContractGenerator
     ///     Generates a set of C# files from the input stream containing the proto source. This is the primary entry-point into
     ///     the ContractPlugin.
     /// </summary>
-    public static IReadOnlyList<CodeGeneratorResponse.Types.File> Generate(IEnumerable<FileDescriptor> fileDescriptors,
+    public IReadOnlyList<CodeGeneratorResponse.Types.File> Generate(IEnumerable<FileDescriptor> fileDescriptors,
         GeneratorOptions options)
     {
         var output = new List<CodeGeneratorResponse.Types.File>();
 
-        foreach (var file in fileDescriptors)
+        var descriptors = fileDescriptors as FileDescriptor[] ?? fileDescriptors.ToArray();
+        foreach (var file in descriptors)
         {
             var generatedCsCodeBody = new ServiceGenerator(file, options).Generate() ?? "";
             if (generatedCsCodeBody.Length == 0)
@@ -28,7 +29,7 @@ public class ContractGenerator
             if (fileName == "") return output;
 
             // Only generate specific proto files, don't generate "import proto".
-            if (file == fileDescriptors.Last())
+            if (file == descriptors.Last())
             {
                 output.Add(
                     new CodeGeneratorResponse.Types.File

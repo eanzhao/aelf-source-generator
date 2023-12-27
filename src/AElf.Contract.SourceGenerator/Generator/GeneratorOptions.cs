@@ -1,4 +1,4 @@
-namespace ContractGenerator;
+namespace AElf.Contract.SourceGenerator.Generator;
 
 public class GeneratorOptions
 {

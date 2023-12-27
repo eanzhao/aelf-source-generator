@@ -1,7 +1,7 @@
 using AElf;
 using Google.Protobuf.Reflection;
 
-namespace ContractGenerator;
+namespace AElf.Contract.SourceGenerator.Generator;
 
 public partial class Generator
 {

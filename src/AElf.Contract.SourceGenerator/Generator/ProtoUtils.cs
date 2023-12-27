@@ -1,7 +1,7 @@
-using ContractGenerator.Primitives;
+using AElf.Contract.SourceGenerator.Generator.Primitives;
 using Google.Protobuf.Reflection;
 
-namespace ContractGenerator;
+namespace AElf.Contract.SourceGenerator.Generator;
 
 public class ProtoUtils
 {
