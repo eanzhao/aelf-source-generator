@@ -31,13 +31,17 @@ namespace AElf.Tools
         protected GeneratorServices(TaskLoggingHelper log) { Log = log; }
 
         // Obtain a service for the given language (csharp).
-        public static GeneratorServices? GetForLanguage(string lang, TaskLoggingHelper log)
+        public static GeneratorServices? GetForLanguage(string? lang, TaskLoggingHelper log)
         {
-            if (lang.EqualNoCase("csharp")) { return new CSharpGeneratorServices(log); }
+            if (lang == null) return null;
+            if (lang.EqualNoCase("csharp"))
+            {
+                return new CSharpGeneratorServices(log);
+            }
             // if (lang.EqualNoCase("cpp")) { return new CppGeneratorServices(log); }
 
             log.LogError("Invalid value '{0}' for task property 'Generator'. " +
-                "Supported generator languages: CSharp.", lang);
+                         "Supported generator languages: CSharp.", lang);
             return null;
         }
 
@@ -72,8 +76,8 @@ namespace AElf.Tools
         // to proto, minus some slash normalization.
         protected static string GetRelativeDir(string root, string proto, TaskLoggingHelper log)
         {
-            string protoDir = Path.GetDirectoryName(proto);
-            string rootDir = EndWithSlash(Path.GetDirectoryName(EndWithSlash(root)));
+            var protoDir = Path.GetDirectoryName(proto)!;
+            var rootDir = EndWithSlash(Path.GetDirectoryName(EndWithSlash(root)));
             if (rootDir == s_dotSlash)
             {
                 // Special case, otherwise we can return "./" instead of "" below!
@@ -98,14 +102,14 @@ namespace AElf.Tools
         // './' or '.\', normalized per system.
         protected static string s_dotSlash = "." + Path.DirectorySeparatorChar;
 
-        protected static string EndWithSlash(string str)
+        protected static string EndWithSlash(string? str)
         {
-            if (str == "")
+            if (string.IsNullOrEmpty(str))
             {
                 return s_dotSlash;
             }
 
-            if (str[str.Length - 1] != '\\' && str[str.Length - 1] != '/')
+            if (str[^1] != '\\' && str[^1] != '/')
             {
                 return str + Path.DirectorySeparatorChar;
             }

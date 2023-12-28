@@ -47,7 +47,7 @@ namespace AElf.Tools
         ///               Source="my_proto.proto" />
         /// </summary>
         [Output]
-        public ITaskItem[] Dependencies { get; private set; }
+        public ITaskItem[]? Dependencies { get; private set; }
 
         public override bool Execute()
         {

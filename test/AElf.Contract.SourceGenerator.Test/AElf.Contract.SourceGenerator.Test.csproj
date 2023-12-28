@@ -38,8 +38,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Protobuf\*\*.proto">
+      <None Update="Protobuf\Proto\*\*.proto">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
+
 </Project>

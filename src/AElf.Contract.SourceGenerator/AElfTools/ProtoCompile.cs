@@ -395,7 +395,7 @@ namespace AElf.Tools
             }
 
             // Use ProtoDepDir to autogenerate DependencyOut
-            if (ProtoDepDir != null)
+            if (ProtoDepDir != null && Protobuf != null && Protobuf.Any())
             {
                 DependencyOut = DepFileUtil.GetDepFilenameForProto(ProtoDepDir, Protobuf[0].ItemSpec);
             }
@@ -448,35 +448,35 @@ namespace AElf.Tools
             var cmd = new ProtocResponseFileBuilder();
             cmd.AddArg("--include_imports");
             cmd.AddSwitchMaybe(Generator + "_out", TrimEndSlash(OutputDir));
-            cmd.AddSwitchMaybe(Generator + "_opt", OutputOptions);
-            cmd.AddSwitchMaybe("descriptor_set_out",
-                Protobuf.First().ItemSpec.Replace(".proto", ".pb"));
-            //throw new Exception($"pb test: {Protobuf.First().ItemSpec.Replace(".proto", ".pb")}");
-            if (ProtoPath != null)
-            {
-                foreach (var path in ProtoPath)
-                {
-                    cmd.AddSwitchMaybe("proto_path", TrimEndSlash(path!));
-                }
-            }
-
-            if (DependencyOut != null)
-            {
-                cmd.AddSwitchMaybe("dependency_out", DependencyOut);
-            }
-
-            cmd.AddSwitchMaybe("error_format", "msvs");
-
-            if (AdditionalProtocArguments != null)
-            {
-                foreach (var additionalProtocOption in AdditionalProtocArguments)
-                {
-                    cmd.AddArg(additionalProtocOption);
-                }
-            }
-
+            if (OutputOptions != null) cmd.AddSwitchMaybe(Generator + "_opt", OutputOptions);
             if (Protobuf != null)
             {
+                cmd.AddSwitchMaybe("descriptor_set_out",
+                    Protobuf.First().ItemSpec.Replace(".proto", ".pb"));
+                //throw new Exception($"pb test: {Protobuf.First().ItemSpec.Replace(".proto", ".pb")}");
+                if (ProtoPath != null)
+                {
+                    foreach (var path in ProtoPath)
+                    {
+                        cmd.AddSwitchMaybe("proto_path", TrimEndSlash(path!));
+                    }
+                }
+
+                if (DependencyOut != null)
+                {
+                    cmd.AddSwitchMaybe("dependency_out", DependencyOut);
+                }
+
+                cmd.AddSwitchMaybe("error_format", "msvs");
+
+                if (AdditionalProtocArguments != null)
+                {
+                    foreach (var additionalProtocOption in AdditionalProtocArguments)
+                    {
+                        cmd.AddArg(additionalProtocOption);
+                    }
+                }
+
                 foreach (var proto in Protobuf)
                 {
                     cmd.AddArg(proto.ItemSpec);
@@ -490,11 +490,11 @@ namespace AElf.Tools
 
         // Protoc cannot digest trailing slashes in directory names,
         // curiously under Linux, but not in Windows.
-        static string TrimEndSlash(string dir)
+        static string TrimEndSlash(string? dir)
         {
-            if (dir == null || dir.Length <= 1)
+            if (dir is not { Length: > 1 })
             {
-                return dir;
+                return string.Empty;
             }
             string trim = dir.TrimEnd('/', '\\');
             // Do not trim the root slash, drive letter possible.
@@ -572,10 +572,12 @@ namespace AElf.Tools
         {
             foreach (ErrorListFilter filter in s_errorListFilters)
             {
-                Match match = filter.Pattern.Match(singleLine);
+                if (filter.Pattern == null) continue;
+                var match = filter.Pattern.Match(singleLine);
 
                 if (match.Success)
                 {
+                    if (filter.LogAction == null) continue;
                     filter.LogAction(Log, match);
                     return;
                 }
@@ -619,8 +621,8 @@ namespace AElf.Tools
 
         class ErrorListFilter
         {
-            public Regex Pattern { get; set; }
-            public Action<TaskLoggingHelper, Match> LogAction { get; set; }
+            public Regex? Pattern { get; set; }
+            public Action<TaskLoggingHelper, Match>? LogAction { get; set; }
         }
     };
 }

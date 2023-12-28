@@ -208,7 +208,7 @@ namespace AElf.Tools
         /// </remarks>
         private static string GetDirectoryHash(string proto)
         {
-            var dirname = Path.GetDirectoryName(proto);
+            var dirname = Path.GetDirectoryName(proto)!;
             if (Platform.IsFsCaseInsensitive)
             {
                 dirname = dirname.ToLowerInvariant();
@@ -252,7 +252,7 @@ namespace AElf.Tools
             try
             {
                 // Normalize file name.
-                return Path.Combine(Path.GetDirectoryName(filename), Path.GetFileName(filename));
+                return Path.Combine(Path.GetDirectoryName(filename)!, Path.GetFileName(filename));
             }
             catch (Exception ex) when (Exceptions.IsIoRelated(ex))
             {

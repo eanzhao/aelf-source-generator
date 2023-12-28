@@ -1,4 +1,3 @@
-using System.Text;
 using AElf.Contract.SourceGenerator.Generator;
 using AElf.Contract.SourceGenerator.Generator.Primitives;
 using AElf.Tools;
@@ -7,25 +6,42 @@ using Google.Protobuf.Reflection;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.Text;
 
 namespace AElf.Contract.SourceGenerator;
 
-[Generator(LanguageNames.CSharp)]
+[Generator]
 public class ContractCodeGenerator : IIncrementalGenerator
 {
+    private static bool _clearedFiles;
+
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
-        var textFiles = context.AdditionalTextsProvider
+        var protoFiles = context.AdditionalTextsProvider
             .Where(static file => file.Path.EndsWith(".proto"));
 
         var addedFiles = new List<string>();
 
-        context.RegisterSourceOutput(textFiles, (productionContext, protoFile) =>
+        context.RegisterSourceOutput(protoFiles, (productionContext, protoFile) =>
         {
             try
             {
                 var location = Path.GetDirectoryName(protoFile.Path);
+
+                if (!_clearedFiles)
+                {
+                    var generatedDir =
+                        $"{Directory.GetParent(Path.GetDirectoryName(location)!)}{Path.DirectorySeparatorChar}Generated";
+                    foreach (var directory in Directory.EnumerateDirectories(generatedDir))
+                    {
+                        foreach (var generatedFile in Directory.EnumerateFiles(directory))
+                        {
+                            File.Delete(generatedFile);
+                        }
+                    }
+
+                    _clearedFiles = true;
+                }
+
                 RunProtoCompile(protoFile.Path);
                 var fileDescriptors = GenerateFileDescriptorsFromPbFile(protoFile.Path);
                 if (fileDescriptors == null)
@@ -36,7 +52,7 @@ public class ContractCodeGenerator : IIncrementalGenerator
                 var dir = Path.GetDirectoryName(protoFile.Path)?.Split(Path.DirectorySeparatorChar).LastOrDefault();
                 var options = ParameterParser.Parse(GetGeneratorOptions(dir));
                 var contractGenerator = new ContractGenerator();
-                var outputFiles = contractGenerator.Generate(fileDescriptors, options);
+                var outputFiles = contractGenerator.Generate(fileDescriptors, options).ToList();
                 var outputFile = outputFiles.FirstOrDefault();
                 if (outputFile != null)
                 {
@@ -44,7 +60,7 @@ public class ContractCodeGenerator : IIncrementalGenerator
                     var content = outputFile.Content;
                     if (!addedFiles.Contains(fileName))
                     {
-                        productionContext.AddSource(fileName, SourceText.From(content, Encoding.UTF8));
+                        AddSource(productionContext, $"{fileName}", content, protoFile.Path);
                         addedFiles.Add(fileName);
                     }
                 }
@@ -53,8 +69,8 @@ public class ContractCodeGenerator : IIncrementalGenerator
                     .Replace(".proto", ".cs");
                 if (!addedFiles.Contains(originalFileName))
                 {
-                    productionContext.AddSource(originalFileName,
-                        SourceText.From(File.ReadAllText($"{location}/{originalFileName}"), Encoding.UTF8));
+                    AddSource(productionContext, $"{originalFileName.Replace(".cs", ".g.cs")}",
+                        File.ReadAllText($"{location}/{originalFileName}"), protoFile.Path);
                     addedFiles.Add(originalFileName);
                 }
 
@@ -62,9 +78,9 @@ public class ContractCodeGenerator : IIncrementalGenerator
                 {
                     var stateTypeName = fileDescriptors.Last().Services.Last().GetOptions()
                         .GetExtension(OptionsExtensions.CsharpState);
-                    var output = new ContractStateGenerator().Generate(stateTypeName);
-                    productionContext.AddSource(output.Item1, SourceText.From(output.Item2, Encoding.UTF8));
-                    addedFiles.Add(output.Item1);
+                    var stateOutput = new ContractStateGenerator().Generate(stateTypeName);
+                    AddSource(productionContext, $"{stateOutput.Item1}", stateOutput.Item2, protoFile.Path);
+                    addedFiles.Add(stateOutput.Item1);
                 }
             }
             catch (Exception e)
@@ -73,26 +89,48 @@ public class ContractCodeGenerator : IIncrementalGenerator
             }
             finally
             {
-                var location = Path.GetDirectoryName(protoFile.Path);
                 var depFiles = Directory.EnumerateFiles(CurrentDirectory, "*.protodep");
                 foreach (var depFile in depFiles)
                 {
                     File.Delete(depFile);
                 }
 
-                var pbFiles = Directory.EnumerateFiles(location, "*.pb");
-                foreach (var pbFile in pbFiles)
+                var location = Path.GetDirectoryName(protoFile.Path);
+                if (location != null)
                 {
-                    File.Delete(pbFile);
-                }
+                    var pbFiles = Directory.EnumerateFiles(location, "*.pb");
+                    foreach (var pbFile in pbFiles)
+                    {
+                        File.Delete(pbFile);
+                    }
 
-                var csFiles = Directory.EnumerateFiles(location, "*.cs");
-                foreach (var csFile in csFiles)
-                {
-                    File.Delete(csFile);
+                    var csFiles = Directory.EnumerateFiles(location, "*.cs");
+                    foreach (var csFile in csFiles)
+                    {
+                        File.Delete(csFile);
+                    }
                 }
             }
         });
+    }
+
+    private void AddSource(SourceProductionContext spc, string name, string text, string protoFilePath)
+    {
+        var path = $"{Path.GetDirectoryName(protoFilePath)}{Path.DirectorySeparatorChar}{name}";
+        if (!path.EndsWith(".cs"))
+        {
+            path += ".cs";
+        }
+
+        path = path.Replace($"{Path.DirectorySeparatorChar}Proto{Path.DirectorySeparatorChar}",
+            $"{Path.DirectorySeparatorChar}Generated{Path.DirectorySeparatorChar}");
+        if (!Directory.Exists(Path.GetDirectoryName(path)))
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+        }
+
+        File.WriteAllText(path, text);
+        //spc.AddSource(name, SourceText.From(text, Encoding.UTF8));
     }
 
     private void RunProtoCompile(string protoFilePath)
@@ -151,7 +189,7 @@ public class ContractCodeGenerator : IIncrementalGenerator
     {
         var toolsPlatform = new ProtoToolsPlatform();
         toolsPlatform.Execute();
-        return $"{toolsPlatform.Os.ToLowerInvariant()}_{toolsPlatform.Cpu.ToLowerInvariant()}";
+        return $"{toolsPlatform.Os!.ToLowerInvariant()}_{toolsPlatform.Cpu!.ToLowerInvariant()}";
     }
 
     private string[] GetGeneratorOptions(string? dir)

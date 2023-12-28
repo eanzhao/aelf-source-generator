@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
     <ItemGroup>
         <PackageReference Include="AElf.Sdk.CSharp" Version="1.6.0" />
     </ItemGroup>
@@ -10,18 +11,15 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Protobuf\*\*.proto" />
-        <AdditionalFiles Include="Protobuf\*\*.proto">
+        <None Remove="Protobuf\Proto\*\*.proto" />
+        <AdditionalFiles Include="Protobuf\Proto\*\*.proto">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </AdditionalFiles>
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Protobuf\base\" />
-        <Folder Include="Protobuf\message\" />
-        <Folder Include="Protobuf\contract\" />
-        <Folder Include="Protobuf\reference\" />
-        <Folder Include="Protobuf\stub\" />
+        <Folder Include="Protobuf\Proto\*" />
+        <Folder Include="Protobuf\Generated\*" />
     </ItemGroup>
 
 </Project>

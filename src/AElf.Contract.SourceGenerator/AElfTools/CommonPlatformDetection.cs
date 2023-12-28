@@ -101,7 +101,7 @@ namespace AElf.Tools
         static extern int uname(IntPtr buf);
 
         // This code is copied from Core/PlatformApis.cs
-        static string GetUname()
+        static string? GetUname()
         {
             var buffer = Marshal.AllocHGlobal(8192);
             try

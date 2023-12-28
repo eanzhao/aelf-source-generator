@@ -28,7 +28,7 @@ namespace AElf.Tools
         /// Code generator. Currently supported are "csharp", "cpp".
         /// </summary>
         [Required]
-        public string Generator { get; set; }
+        public string? Generator { get; set; }
 
         /// <summary>
         /// All Proto files in the project. The task computes possible outputs
@@ -38,7 +38,7 @@ namespace AElf.Tools
         /// files actually produced by the compiler.
         /// </summary>
         [Required]
-        public ITaskItem[] Protobuf { get; set; }
+        public ITaskItem[]? Protobuf { get; set; }
 
         /// <summary>
         /// All Proto files in the project. A patched copy of all items from
@@ -46,7 +46,7 @@ namespace AElf.Tools
         /// attributes.
         /// </summary>
         [Output]
-        public ITaskItem[] PatchedProtobuf { get; set; }
+        public ITaskItem[]? PatchedProtobuf { get; set; }
 
         /// <summary>
         /// Output items per each potential output. We do not look at existing
@@ -62,7 +62,7 @@ namespace AElf.Tools
         ///     <ItemName Include="MyProto.cs" Source="my_proto.proto" />
         /// </summary>
         [Output]
-        public ITaskItem[] PossibleOutputs { get; private set; }
+        public ITaskItem[]? PossibleOutputs { get; private set; }
 
         public override bool Execute()
         {
@@ -77,19 +77,20 @@ namespace AElf.Tools
             // metadata be set on the proto item.
             var possible = new List<ITaskItem>();
             var patched = new List<ITaskItem>();
-            foreach (var proto in Protobuf)
-            {
-                var patchedProto = generator.PatchOutputDirectory(proto);
-                patched.Add(patchedProto);
-
-                var outputs = generator.GetPossibleOutputs(patchedProto);
-                foreach (var output in outputs)
+            if (Protobuf != null)
+                foreach (var proto in Protobuf)
                 {
-                    var ti = new TaskItem(output);
-                    ti.SetMetadata(Metadata.Source, patchedProto.ItemSpec);
-                    possible.Add(ti);
+                    var patchedProto = generator.PatchOutputDirectory(proto);
+                    patched.Add(patchedProto);
+
+                    var outputs = generator.GetPossibleOutputs(patchedProto);
+                    foreach (var output in outputs)
+                    {
+                        var ti = new TaskItem(output);
+                        ti.SetMetadata(Metadata.Source, patchedProto.ItemSpec);
+                        possible.Add(ti);
+                    }
                 }
-            }
 
             PatchedProtobuf = patched.ToArray();
             PossibleOutputs = possible.ToArray();

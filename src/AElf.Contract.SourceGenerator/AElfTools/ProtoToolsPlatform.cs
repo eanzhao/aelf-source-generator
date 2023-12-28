@@ -32,14 +32,14 @@ namespace AElf.Tools
         /// If the OS is unknown, the property is not set.
         /// </summary>
         [Output]
-        public string Os { get; set; }
+        public string? Os { get; set; }
 
         /// <summary>
         /// Return one of 'x64', 'x86', 'arm64'.
         /// If the CPU is unknown, the property is not set.
         /// </summary>
         [Output]
-        public string Cpu { get; set; }
+        public string? Cpu { get; set; }
 
 
         public override bool Execute()
