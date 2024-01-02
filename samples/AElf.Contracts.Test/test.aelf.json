@@ -1,0 +1,20 @@
+{
+  "State": [
+    {
+      "Type": "int",
+      "Name": "IntState"
+    },
+    {
+      "Type": "map<string, int>",
+      "Name": "MapState"
+    }
+  ],
+  "BaseContract": [
+    {
+      "ContractAddress": ""
+    }
+  ],
+  "Library": [
+    "AElf.ContractLib.Demo"
+  ]
+}

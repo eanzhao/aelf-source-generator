@@ -1,7 +1,18 @@
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 namespace AElf.Contract.SourceGenerator.Generator;
 
 public class ContractStateGenerator
 {
+    private readonly string _protoFilePath;
+
+    public ContractStateGenerator(string protoFilePath)
+    {
+        _protoFilePath = protoFilePath;
+    }
+
     public (string, string) Generate(string stateTypeName)
     {
         var className = stateTypeName.Split('.').Last();
@@ -15,7 +26,70 @@ namespace {ns};
 
 public partial class {className} : ContractState
 {{
+{ExtractStates()}
 }}
 ");
     }
+
+    private string ExtractStates()
+    {
+        var stateStringBuilder = new StringBuilder();
+        var stateFileDirectory = Directory.GetParent(_protoFilePath)!.Parent!.Parent!.Parent!.ToString();
+        var stateFiles = Directory.EnumerateFiles(stateFileDirectory, "*.aelf.json");
+        var states = new Dictionary<string, string>();
+        foreach (var stateFile in stateFiles)
+        {
+            var json = File.ReadAllText(stateFile);
+            var config = JsonSerializer.Deserialize<AElfConfig>(json);
+            if (config == null) continue;
+            foreach (var state in config.State)
+            {
+                states.TryAdd(state.Type, state.Name);
+            }
+        }
+
+        foreach (var state in states)
+        {
+            stateStringBuilder.Append($"    {ConvertStateConfigToStatement(state.Key, state.Value)}");
+            stateStringBuilder.AppendLine();
+        }
+
+        return stateStringBuilder.ToString();
+    }
+
+    private string ConvertStateConfigToStatement(string stateType, string stateName)
+    {
+        string Build(string t, string n) => $"public {t} {n} {{ get; set; }}";
+        switch (stateType)
+        {
+            case "int":
+                return Build("Int32State", stateName);
+            case "long":
+                return Build("Int64State", stateName);
+            case "string":
+                return Build("StringState", stateName);
+            case "bool":
+                return Build("BoolState", stateName);
+        }
+
+        if (stateType.StartsWith("map"))
+        {
+            return Build($"MappedState{stateType[3..]}", stateName);
+        }
+
+        // TODO: list all
+        return string.Empty;
+    }
+}
+
+public class AElfConfig
+{
+    [JsonPropertyName("State")]
+    public List<State> State { get; set; }
+}
+
+public class State
+{
+    public string Type { get; set; }
+    public string Name { get; set; }
 }
