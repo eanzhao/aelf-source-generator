@@ -4,14 +4,12 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>0.1.0</Version>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0-3.final" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.8.0" PrivateAssets="all" />
         <PackageReference Include="Google.Protobuf" Version="3.24.3" GeneratePathProperty="true" PrivateAssets="all" />
         <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.6.85" GeneratePathProperty="true" PrivateAssets="all" />
         <PackageReference Include="Microsoft.Build.Framework" Version="15.6.85" GeneratePathProperty="true" PrivateAssets="all" />
@@ -32,10 +30,16 @@
     </Target>
 
     <ItemGroup Label="NuGet package assets">
-        <None Pack="true" PackagePath="..\..\tools" Include="..\..\tools\**\*.*" LinkBase="tools" Visible="false"
+        <None Pack="true" PackagePath="tools" Include="..\..\tools\**\*.*" LinkBase="tools" Visible="false"
               CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
-        <None Pack="true" PackagePath="..\..\build\native\include" Include="..\..\build\native\include\**\*.proto" LinkBase="build\native\include" Visible="false"
+        <None Pack="true" PackagePath="build\native\include" Include="..\..\build\native\include\**\*.proto" LinkBase="build\native\include" Visible="false"
               CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
+        <None Update="AElf.Contract.SourceGenerator.props">
+          <Pack>True</Pack>
+          <PackagePath>build</PackagePath>
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+          <CopyToPublishDirectory>Always</CopyToPublishDirectory>
+        </None>
     </ItemGroup>
 
 </Project>

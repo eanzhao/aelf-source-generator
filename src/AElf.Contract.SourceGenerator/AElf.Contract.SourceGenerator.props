@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup>
+        <None Include="$(OutputPath)\build\native\include\aelf\*">
+            <Link>Protobuf\Proto\aelf\*</Link>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AElf.Sdk.CSharp" Version="1.6.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\AElf.Contract.SourceGenerator\AElf.Contract.SourceGenerator.csproj"
+                          OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Protobuf\Proto\*\*.proto" />
+        <AdditionalFiles Include="Protobuf\Proto\*\*.proto">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </AdditionalFiles>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="*.state.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="Protobuf\Proto\*" />
+        <Folder Include="Protobuf\Generated\*" />
+    </ItemGroup>
+
+    <Target Name="MakeProtobufDir" AfterTargets="PrepareForBuild">
+        <MakeDir Directories="$(ProjectDir)Protobuf" Condition="!Exists('$(ProjectDir)Protobuf')"  />
+        <MakeDir Directories="$(ProjectDir)Protobuf\Proto" Condition="!Exists('$(ProjectDir)Protobuf\Proto')"  />
+        <MakeDir Directories="$(ProjectDir)Protobuf\Generated" Condition="!Exists('$(ProjectDir)Protobuf\Proto')"  />
+        <MakeDir Directories="$(ProjectDir)Protobuf\Proto\message" Condition="!Exists('$(ProjectDir)Protobuf\Proto\message')"  />
+        <MakeDir Directories="$(ProjectDir)Protobuf\Proto\stub" Condition="!Exists('$(ProjectDir)Protobuf\Proto\stub')"  />
+        <MakeDir Directories="$(ProjectDir)Protobuf\Proto\contract" Condition="!Exists('$(ProjectDir)Protobuf\Proto\contract')"  />
+        <MakeDir Directories="$(ProjectDir)Protobuf\Proto\reference" Condition="!Exists('$(ProjectDir)Protobuf\Proto\reference')"  />
+        <MakeDir Directories="$(ProjectDir)Protobuf\Proto\base" Condition="!Exists('$(ProjectDir)Protobuf\Proto\base')"  />
+        <Touch AlwaysCreate="true" Files="$(ProjectDir)Protobuf\Proto\contract\CreateYourContractProtoFileHere" />
+    </Target>
+
+</Project>

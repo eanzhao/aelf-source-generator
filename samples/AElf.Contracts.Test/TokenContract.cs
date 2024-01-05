@@ -11,7 +11,6 @@ public class TokenContract : TokenContractImplContainer.TokenContractImplBase
 {
     public override TransactionFeeDelegations GetTransactionFeeDelegateInfo(GetTransactionFeeDelegateInfoInput input)
     {
-
         throw new NotImplementedException();
     }
 

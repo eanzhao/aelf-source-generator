@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+<!--    Need to create a local nuget source before doing so, currently.-->
+    <ItemGroup>
+        <PackageReference Include="AElf.Contract.SourceGenerator" Version="0.1.0"
+                          OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Protobuf\Proto\contract\" />
+    </ItemGroup>
+</Project>

@@ -11,6 +11,7 @@
     <ItemGroup>
         <PackageReference Include="AElf.CSharp.Core" Version="1.6.0" />
         <PackageReference Include="Google.Protobuf" Version="3.24.3" />
+        <PackageReference Include="ICSharpCode.Decompiler" Version="8.2.0.7535" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0"/>
         <PackageReference Include="Shouldly" Version="4.2.1" />
         <PackageReference Include="xunit" Version="2.4.1"/>
@@ -34,11 +35,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\AElf.Contract.SourceGenerator\AElf.Contract.SourceGenerator.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Update="Protobuf\Proto\*\*.proto">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="code.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
