@@ -1,3 +1,4 @@
+using System.Reflection;
 using Microsoft.Build.Framework;
 
 namespace AElf.Contract.SourceGenerator;

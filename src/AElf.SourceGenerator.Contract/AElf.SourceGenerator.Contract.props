@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <ItemGroup>
-        <None Include="$(OutputPath)\build\native\include\aelf\*">
+        <None Include="$(OutputPath)\include\aelf\*">
             <Link>Protobuf\Proto\aelf\*</Link>
         </None>
     </ItemGroup>
@@ -15,13 +15,6 @@
         <AdditionalFiles Include="Protobuf\Proto\*\*.proto">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </AdditionalFiles>
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include="tools\**\*" Visible="false"/>
-        <None Include="build\*\*\**\*" Visible="false"/>
-        <Compile Include="tools\**\*" Condition="1==2" />
-        <Compile Include="build\*\*\**\*" Condition="1==2" />
     </ItemGroup>
 
     <ItemGroup>

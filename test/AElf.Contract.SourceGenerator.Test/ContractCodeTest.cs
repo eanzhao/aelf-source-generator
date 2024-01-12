@@ -68,4 +68,11 @@ public class ContractCodeTest
         decompiler.DecompileProject(module, dir);
         module.Reader.Dispose();
     }
+
+    [Fact]
+    public void Test3()
+    {
+        //var location = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
+        var location = Assembly.GetExecutingAssembly().Location;
+    }
 }

@@ -6,12 +6,20 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <AElfSourceGenerator_LogFilePath>/Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local/log.txt</AElfSourceGenerator_LogFilePath>
+        <AElfSourceGenerator_LogLevel>debug</AElfSourceGenerator_LogLevel>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <CompilerVisibleProperty Include="AElfSourceGenerator_LogFilePath" />
+        <CompilerVisibleProperty Include="AElfSourceGenerator_LogLevel" />
+    </ItemGroup>
+
 <!--    Need to create a local nuget source before doing so, currently.-->
     <ItemGroup>
-        <PackageReference Include="AElf.Contract.SourceGenerator" Version="0.1.0"
-                          OutputItemType="Analyzer" ReferenceOutputAssembly="false"/>
+        <PackageReference Include="AElf.Contract.SourceGenerator" Version="0.0.1"
+                          OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
-    <ItemGroup>
-      <Folder Include="Protobuf\Proto\contract\" />
-    </ItemGroup>
+
 </Project>

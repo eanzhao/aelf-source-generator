@@ -21,7 +21,7 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </AdditionalFiles>
     </ItemGroup>
-    
+
     <ItemGroup>
         <None Include="*.state.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>

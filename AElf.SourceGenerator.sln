@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B09C9D25-AF36-4D62-82C3-8C518583775B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FB2F1BEE-79CE-4CF8-85EB-C6300DBC6746}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{C6AB0FBC-1F2F-41C2-A543-45E495C6ABD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "protobuf", "protobuf", "{9EF34103-CBB4-4863-95B1-1903B3826728}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "aelf", "aelf", "{B57FD6CE-E62D-4B8F-A74C-197BCCC4DD6B}"
+	ProjectSection(SolutionItems) = preProject
+		protobuf\aelf\core.proto = protobuf\aelf\core.proto
+		protobuf\aelf\options.proto = protobuf\aelf\options.proto
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "google", "google", "{9A86AB99-568E-49F4-99A8-8C464DC66E07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "protobuf", "protobuf", "{278641FF-978E-49D5-AD1D-1A467B0CF5BD}"
+	ProjectSection(SolutionItems) = preProject
+		protobuf\google\protobuf\any.proto = protobuf\google\protobuf\any.proto
+		protobuf\google\protobuf\api.proto = protobuf\google\protobuf\api.proto
+		protobuf\google\protobuf\type.proto = protobuf\google\protobuf\type.proto
+		protobuf\google\protobuf\empty.proto = protobuf\google\protobuf\empty.proto
+		protobuf\google\protobuf\struct.proto = protobuf\google\protobuf\struct.proto
+		protobuf\google\protobuf\duration.proto = protobuf\google\protobuf\duration.proto
+		protobuf\google\protobuf\wrappers.proto = protobuf\google\protobuf\wrappers.proto
+		protobuf\google\protobuf\timestamp.proto = protobuf\google\protobuf\timestamp.proto
+		protobuf\google\protobuf\descriptor.proto = protobuf\google\protobuf\descriptor.proto
+		protobuf\google\protobuf\field_mask.proto = protobuf\google\protobuf\field_mask.proto
+		protobuf\google\protobuf\source_context.proto = protobuf\google\protobuf\source_context.proto
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AElf.SourceGenerator.Contract", "src\AElf.SourceGenerator.Contract\AElf.SourceGenerator.Contract.csproj", "{23F988CC-813A-4AFD-9832-DA8AE9545390}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{4E6E4CF0-1612-41BB-9400-905AC23E1451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AElf.Contracts.Album", "samples\AElf.Contracts.Album\AElf.Contracts.Album.csproj", "{1D620678-C89E-4B1A-A593-9B64231A16D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B57FD6CE-E62D-4B8F-A74C-197BCCC4DD6B} = {9EF34103-CBB4-4863-95B1-1903B3826728}
+		{9A86AB99-568E-49F4-99A8-8C464DC66E07} = {9EF34103-CBB4-4863-95B1-1903B3826728}
+		{278641FF-978E-49D5-AD1D-1A467B0CF5BD} = {9A86AB99-568E-49F4-99A8-8C464DC66E07}
+		{23F988CC-813A-4AFD-9832-DA8AE9545390} = {B09C9D25-AF36-4D62-82C3-8C518583775B}
+		{1D620678-C89E-4B1A-A593-9B64231A16D6} = {4E6E4CF0-1612-41BB-9400-905AC23E1451}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23F988CC-813A-4AFD-9832-DA8AE9545390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F988CC-813A-4AFD-9832-DA8AE9545390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F988CC-813A-4AFD-9832-DA8AE9545390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F988CC-813A-4AFD-9832-DA8AE9545390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D620678-C89E-4B1A-A593-9B64231A16D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D620678-C89E-4B1A-A593-9B64231A16D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D620678-C89E-4B1A-A593-9B64231A16D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D620678-C89E-4B1A-A593-9B64231A16D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

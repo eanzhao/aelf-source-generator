@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <AElfSourceGenerator_LogFilePath>/Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.Album/log.txt</AElfSourceGenerator_LogFilePath>
+        <AElfSourceGenerator_LogLevel>debug</AElfSourceGenerator_LogLevel>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AElf.SourceGenerator.Contract" Version="0.0.1" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,422 @@
+[Information - 2024/1/10 16:02:16] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 16:02:16] /usr/local/share/dotnet/sdk/8.0.100/Roslyn/bincore
+[Error - 2024/1/10 16:02:16] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/10 17:13:38] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:13:39] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:13:39] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:13:39] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:13:39] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:13:39] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:13:39] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:13:39] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:31:09] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:31:09] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:31:09] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:31:09] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:31:09] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:31:09] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:31:09] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:31:09] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:31:38] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:31:38] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:31:38] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:31:38] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:31:38] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:31:38] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:31:38] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:31:38] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:32:24] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:32:24] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:32:24] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:32:24] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:32:24] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:32:24] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:32:24] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:32:24] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:38:30] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:38:30] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:38:30] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:38:30] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:38:30] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:38:30] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:38:30] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:38:30] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:38:40] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:38:40] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:38:40] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:38:40] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:38:40] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:38:40] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:38:40] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:38:40] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:39:30] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:39:30] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:39:30] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:39:30] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:39:30] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:39:30] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:39:30] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:39:30] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:41:05] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:41:05] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:41:05] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:41:05] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:41:05] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:41:05] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:41:05] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:41:05] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:41:39] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:41:39] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:41:39] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:41:39] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:41:39] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:41:39] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:41:39] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:41:39] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 17:41:50] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 17:41:50] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 17:41:50] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 17:41:50] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 17:41:50] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 17:41:50] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 17:41:50] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 17:41:50] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 18:10:01] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 18:10:01] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 18:10:01] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 18:10:01] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 18:10:01] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 18:10:01] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 18:10:01] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 18:10:01] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 18:10:22] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 18:10:22] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 18:10:22] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 18:10:22] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 18:10:22] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 18:10:22] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 18:10:22] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 18:10:22] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 18:10:32] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 18:10:32] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 18:10:32] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 18:10:32] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 18:10:32] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 18:10:32] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 18:10:32] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 18:10:32] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 18:13:06] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 18:13:07] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 18:13:07] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 18:13:07] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 18:13:07] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 18:13:07] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 18:13:07] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 18:13:07] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 18:21:35] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 18:21:36] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 18:21:36] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 18:21:36] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 18:21:36] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 18:21:36] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 18:21:36] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 18:21:36] Deleted HelloWorldContract.cs
+[Information - 2024/1/10 18:23:28] Dealing with: hello_world_contract.proto
+[Information - 2024/1/10 18:23:30] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/10 18:23:30] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/10 18:23:30] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/10 18:23:30] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/10 18:23:30] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/10 18:23:30] Deleted hello_world_contract.pb
+[Debug - 2024/1/10 18:23:30] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 13:37:41] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 13:37:42] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 13:37:42] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 13:37:42] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 13:37:42] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 13:37:42] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 13:37:42] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 13:37:42] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 13:39:10] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 13:39:11] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 13:39:11] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 13:39:11] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 13:39:11] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 13:39:11] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 13:39:11] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 13:39:11] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 13:50:10] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 13:50:11] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 13:50:11] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 13:50:11] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 13:50:11] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 13:50:11] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 13:50:11] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 13:50:11] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 13:50:46] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 13:50:48] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 13:50:48] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 13:50:48] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 13:50:48] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 13:50:48] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 13:50:48] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 13:50:48] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 13:52:58] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 13:52:59] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 13:52:59] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 13:52:59] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 13:52:59] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 13:52:59] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 13:52:59] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 13:52:59] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 13:53:47] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 13:53:49] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 13:53:49] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 13:53:49] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 13:53:49] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 13:53:49] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 13:53:49] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 13:53:49] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 13:54:38] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 13:54:39] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 13:54:39] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 13:54:39] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 13:54:39] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 13:54:39] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 13:54:39] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 13:54:39] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 16:39:41] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 16:39:42] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 16:39:42] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 16:39:42] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 16:39:42] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 16:39:42] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 16:39:42] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 16:39:42] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 16:40:16] Dealing with: hello_world_contract.proto
+[Information - 2024/1/11 16:40:17] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/11 16:40:17] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/11 16:40:17] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/11 16:40:17] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/11 16:40:17] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/11 16:40:17] Deleted hello_world_contract.pb
+[Debug - 2024/1/11 16:40:17] Deleted HelloWorldContract.cs
+[Information - 2024/1/11 16:44:12] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 16:44:13] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 16:45:10] Dealing with: hello_world_contract.proto
+[Debug - 2024/1/11 16:45:10] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Generated/contract/HelloWorldContract.c.cs
+[Debug - 2024/1/11 16:45:10] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Generated/contract/HelloWorldContract.g.cs
+[Debug - 2024/1/11 16:45:10] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Generated/contract/HelloWorldState.g.cs
+[Error - 2024/1/11 16:45:11] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 16:45:41] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 16:45:42] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 16:46:06] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 16:46:07] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 16:47:51] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 16:47:52] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 16:48:42] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 16:48:43] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 16:49:15] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 16:49:16] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 16:51:56] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 16:51:57] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 16:59:19] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 16:59:20] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 17:00:08] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 17:00:09] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 17:01:44] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 17:01:45] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 17:02:24] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 17:02:25] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 17:08:52] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 17:08:53] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 17:09:26] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 17:09:27] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/11 17:16:37] Dealing with: hello_world_contract.proto
+[Error - 2024/1/11 17:16:38] Failed to find pb file of hello_world_contract.proto
+[Information - 2024/1/12 15:21:01] Dealing with: hello_world_contract.proto
+[Information - 2024/1/12 15:21:02] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/12 15:21:02] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/12 15:21:02] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/12 15:21:02] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/12 15:21:02] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/12 15:21:02] Deleted hello_world_contract.pb
+[Debug - 2024/1/12 15:21:02] Deleted HelloWorldContract.cs
+[Information - 2024/1/12 15:23:02] Dealing with: hello_world_contract.proto
+[Information - 2024/1/12 15:23:03] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/12 15:23:03] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/12 15:23:03] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/12 15:23:03] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/12 15:23:03] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/12 15:23:03] Deleted hello_world_contract.pb
+[Debug - 2024/1/12 15:23:03] Deleted HelloWorldContract.cs
+[Information - 2024/1/12 15:25:27] Dealing with: hello_world_contract.proto
+[Information - 2024/1/12 15:25:28] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/12 15:25:28] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/12 15:25:28] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/12 15:25:28] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/12 15:25:28] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/12 15:25:28] Deleted hello_world_contract.pb
+[Debug - 2024/1/12 15:25:28] Deleted HelloWorldContract.cs
+[Information - 2024/1/12 15:27:03] Dealing with: hello_world_contract.proto
+[Information - 2024/1/12 15:27:04] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/12 15:27:04] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/12 15:27:04] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/12 15:27:04] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/12 15:27:04] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/12 15:27:04] Deleted hello_world_contract.pb
+[Debug - 2024/1/12 15:27:04] Deleted HelloWorldContract.cs
+[Information - 2024/1/12 15:31:56] Dealing with: hello_world_contract.proto
+[Information - 2024/1/12 15:31:56] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/12 15:31:56] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/12 15:31:56] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/12 15:31:56] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/12 15:31:56] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/12 15:31:56] Deleted hello_world_contract.pb
+[Debug - 2024/1/12 15:31:56] Deleted HelloWorldContract.cs
+[Information - 2024/1/12 15:32:38] Dealing with: hello_world_contract.proto
+[Information - 2024/1/12 15:32:38] Generated: HelloWorldContract.c.cs
+[Information - 2024/1/12 15:32:38] Generated: HelloWorldContract.g.cs
+[Information - 2024/1/12 15:32:38] Treat hello_world_contract.proto as a contract.
+[Information - 2024/1/12 15:32:38] Generated: HelloWorldState.g.cs
+[Debug - 2024/1/12 15:32:38] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+[Debug - 2024/1/12 15:32:38] Deleted hello_world_contract.pb
+[Debug - 2024/1/12 15:32:38] Deleted HelloWorldContract.cs
+Information - [2024/1/12 16:25:13] Dealing with: hello_world_contract.proto
+Information - [2024/1/12 16:25:15] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 16:25:15] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 16:25:15] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 16:25:15] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 16:25:15] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+Debug - [2024/1/12 16:25:15] Deleted hello_world_contract.pb
+Debug - [2024/1/12 16:25:15] Deleted HelloWorldContract.cs
+Information - [2024/1/12 16:28:29] Dealing with: hello_world_contract.proto
+Information - [2024/1/12 16:28:31] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 16:28:31] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 16:28:31] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 16:28:31] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 16:28:31] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+Debug - [2024/1/12 16:28:31] Deleted hello_world_contract.pb
+Debug - [2024/1/12 16:28:31] Deleted HelloWorldContract.cs
+Information - [2024/1/12 16:54:45] Dealing with: hello_world_contract.proto
+Information - [2024/1/12 16:54:47] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 16:54:47] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 16:54:47] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 16:54:47] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 16:54:47] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+Debug - [2024/1/12 16:54:47] Deleted hello_world_contract.pb
+Debug - [2024/1/12 16:54:47] Deleted HelloWorldContract.cs
+Information - [2024/1/12 16:57:21] Dealing with: hello_world_contract.proto
+Information - [2024/1/12 16:57:23] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 16:57:23] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 16:57:23] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 16:57:23] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 16:57:23] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+Debug - [2024/1/12 16:57:23] Deleted hello_world_contract.pb
+Debug - [2024/1/12 16:57:23] Deleted HelloWorldContract.cs
+Information - [2024/1/12 17:09:54] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 17:09:54] protoc executed.
+Information - [2024/1/12 17:09:56] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 17:09:56] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 17:09:56] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 17:09:56] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 17:09:56] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+Debug - [2024/1/12 17:09:56] Deleted hello_world_contract.pb
+Debug - [2024/1/12 17:09:56] Deleted HelloWorldContract.cs
+Information - [2024/1/12 17:10:23] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 17:10:23] protoc executed.
+Information - [2024/1/12 17:10:25] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 17:10:25] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 17:10:25] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 17:10:25] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 17:10:25] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+Debug - [2024/1/12 17:10:25] Deleted hello_world_contract.pb
+Debug - [2024/1/12 17:10:25] Deleted HelloWorldContract.cs
+Information - [2024/1/12 17:23:06] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 17:23:07] protoc executed.
+Error - [2024/1/12 17:23:07] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator
+Information - [2024/1/12 17:23:09] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 17:23:09] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 17:23:09] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 17:23:09] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 17:23:09] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+Debug - [2024/1/12 17:23:09] Deleted hello_world_contract.pb
+Debug - [2024/1/12 17:23:09] Deleted HelloWorldContract.cs
+Information - [2024/1/12 17:23:44] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 17:23:44] protoc executed.
+Error - [2024/1/12 17:23:44] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator
+Information - [2024/1/12 17:23:46] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 17:23:46] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 17:23:46] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 17:23:46] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 17:23:46] Deleted 3699b4d2ba6c6395_hello_world_contract.protodep
+Debug - [2024/1/12 17:23:46] Deleted hello_world_contract.pb
+Debug - [2024/1/12 17:23:46] Deleted HelloWorldContract.cs
+Information - [2024/1/12 17:28:10] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 17:28:10] Failed to execute protoc
+Error - [2024/1/12 17:28:10] Current Directory: /var/folders/rw/drf9hgs94cd_v_k5jlkx3sp40000gn/T/JB/AssemblyShadowCopies/06490d2fe2734a85a54dffd6548c7e5f/47
+Error - [2024/1/12 17:28:10] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:28:12] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 17:33:40] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 17:33:40] Failed to execute protoc
+Error - [2024/1/12 17:33:40] Current Directory: /var/folders/rw/drf9hgs94cd_v_k5jlkx3sp40000gn/T/JB/AssemblyShadowCopies/06490d2fe2734a85a54dffd6548c7e5f/47
+Error - [2024/1/12 17:33:40] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:33:42] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 17:34:12] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 17:34:12] Failed to execute protoc
+Error - [2024/1/12 17:34:12] Current Directory: /var/folders/rw/drf9hgs94cd_v_k5jlkx3sp40000gn/T/JB/AssemblyShadowCopies/06490d2fe2734a85a54dffd6548c7e5f/48
+Error - [2024/1/12 17:34:12] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:34:14] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 17:36:59] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 17:36:59] Failed to execute protoc
+Error - [2024/1/12 17:36:59] Current Directory: /Users/zhaoyiqi/Library/Application Support/JetBrains/Toolbox/apps/Rider/ch-0/233.11799.261/Rider.app/Contents/lib/ReSharperHost/
+Error - [2024/1/12 17:36:59] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:37:01] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 17:43:02] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 17:43:02] Failed to execute protoc
+Error - [2024/1/12 17:43:02] Current Directory: /Users/zhaoyiqi/Library/Application Support/JetBrains/Toolbox/apps/Rider/ch-0/233.11799.261/Rider.app/Contents/lib/ReSharperHost/
+Error - [2024/1/12 17:43:02] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:43:04] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 17:52:30] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 17:52:30] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Generated/contract/HelloWorldContract.c.cs
+Debug - [2024/1/12 17:52:30] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Generated/contract/HelloWorldContract.g.cs
+Debug - [2024/1/12 17:52:30] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Generated/contract/HelloWorldState.g.cs
+Error - [2024/1/12 17:52:30] Failed to execute protoc
+Error - [2024/1/12 17:52:30] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:52:30] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:52:32] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 17:56:13] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 17:56:13] Failed to execute protoc
+Error - [2024/1/12 17:56:13] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:56:13] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:56:15] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 17:57:46] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 17:57:46] Failed to execute protoc
+Error - [2024/1/12 17:57:46] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:57:46] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:57:48] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 17:59:57] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 17:59:57] Failed to execute protoc
+Error - [2024/1/12 17:59:57] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld
+Error - [2024/1/12 17:59:57] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 17:59:59] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 18:02:50] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 18:02:50] Failed to execute protoc
+Error - [2024/1/12 18:02:50] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld
+Error - [2024/1/12 18:02:50] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 18:02:52] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 18:09:08] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 18:09:08] Failed to execute protoc
+Error - [2024/1/12 18:09:08] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld
+Error - [2024/1/12 18:09:08] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 18:09:08] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 18:13:47] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 18:13:47] Failed to execute protoc
+Error - [2024/1/12 18:13:47] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld
+Error - [2024/1/12 18:13:47] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 18:13:47] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 18:25:07] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 18:25:07] Failed to execute protoc
+Error - [2024/1/12 18:25:07] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld
+Error - [2024/1/12 18:25:07] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto
+Error - [2024/1/12 18:25:07] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/Protobuf/Proto/contract/hello_world_contract.pb

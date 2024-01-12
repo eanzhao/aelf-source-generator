@@ -1,0 +1,10 @@
+<Project>
+    <ItemGroup>
+        <Tools Include="$(MSBuildThisFileDirectory)/../tools/**/*" />
+        <Protos Include="$(MSBuildThisFileDirectory)/../build/*/*/**/*" />
+    </ItemGroup>
+    <Target Name="CopyFiles" BeforeTargets="Build">
+        <Copy SourceFiles="@(Tools)" DestinationFolder="$(MSBuildProjectDirectory)/tools/%(RecursiveDir)" />
+        <Copy SourceFiles="@(Protos)" DestinationFolder="$(MSBuildProjectDirectory)/build/%(RecursiveDir)" />
+    </Target>
+</Project>

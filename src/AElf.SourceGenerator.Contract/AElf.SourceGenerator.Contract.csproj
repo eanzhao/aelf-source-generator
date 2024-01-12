@@ -4,10 +4,12 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Version>0.0.2</Version>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Version>0.0.1</Version>
         <IsPackable>true</IsPackable>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <PackageId>AElf.SourceGenerator.Contract</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,15 +17,7 @@
         <PackageReference Include="Google.Protobuf" Version="3.24.3" GeneratePathProperty="true" PrivateAssets="all" />
         <PackageReference Include="Microsoft.Build.Utilities.Core" Version="15.6.85" GeneratePathProperty="true" PrivateAssets="all" />
         <PackageReference Include="Microsoft.Build.Framework" Version="15.6.85" GeneratePathProperty="true" PrivateAssets="all" />
-        <PackageReference Include="AElf.Types" Version="1.6.0"  GeneratePathProperty="true" PrivateAssets="all" />
-    </ItemGroup>
-    
-    <ItemGroup>
-        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers\dotnet\cs" Visible="false" />
-        <None Include="$(PKGGoogle_Protobuf)\lib\netstandard2.0\Google.Protobuf.dll" Pack="true" PackagePath="analyzers\dotnet\cs" Visible="false" />
-        <None Include="$(PKGMicrosoft_Build_Utilities_Core)\lib\netstandard1.3\Microsoft.Build.Utilities.Core.dll" Pack="true" PackagePath="analyzers\dotnet\cs" Visible="false" />
-        <None Include="$(PKGMicrosoft_Build_Framework)\lib\netstandard1.3\Microsoft.Build.Framework.dll" Pack="true" PackagePath="analyzers\dotnet\cs" Visible="false" />
-        <None Include="$(PKGAElf_Types)\lib\net6.0\AElf.Types.dll" Pack="true" PackagePath="analyzers\dotnet\cs" Visible="false" />
+        <PackageReference Include="AElf.Types" Version="1.6.0" GeneratePathProperty="true" PrivateAssets="all" />
     </ItemGroup>
 
     <PropertyGroup>
@@ -39,24 +33,19 @@
         </ItemGroup>
     </Target>
 
-<!--    analyzers\dotnet\cs\-->
     <ItemGroup Label="NuGet package assets">
-        <None Pack="true" PackagePath="tools" Include="..\..\tools\**\*.*" LinkBase="tools" Visible="false"
-              CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
-        <None Pack="true" PackagePath="build\native\include" Include="..\..\build\native\include\**\*.proto" LinkBase="build\native\include" Visible="false"
-              CopyToOutputDirectory="Always" CopyToPublishDirectory="Always"/>
-        <None Update="AElf.Contract.SourceGenerator.props">
-          <Pack>True</Pack>
-          <PackagePath>build</PackagePath>
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-          <CopyToPublishDirectory>Always</CopyToPublishDirectory>
-        </None>
-        <None Update="AElf.Contract.SourceGenerator.targets">
+        <None Pack="true" PackagePath="tools" Include="..\..\tools\**\*.*" LinkBase="tools" Visible="false" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+        <None Pack="true" PackagePath="include" Include="..\..\protobuf\**\*.proto" LinkBase="include" Visible="false" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+        <None Update="AElf.SourceGenerator.Contract.props">
             <Pack>True</Pack>
-            <PackagePath>build</PackagePath>
+<!--            <PackagePath>build</PackagePath>-->
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
             <CopyToPublishDirectory>Always</CopyToPublishDirectory>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Generators\" />
     </ItemGroup>
 
 </Project>

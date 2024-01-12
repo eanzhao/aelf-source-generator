@@ -6,6 +6,16 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <AElfSourceGenerator_LogFilePath>/Users/zhaoyiqi/Code/aelf-contract-source-generator/samples/AElf.Contracts.HelloWorld/log.txt</AElfSourceGenerator_LogFilePath>
+        <AElfSourceGenerator_LogLevel>Debug</AElfSourceGenerator_LogLevel>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <CompilerVisibleProperty Include="AElfSourceGenerator_LogFilePath" />
+        <CompilerVisibleProperty Include="AElfSourceGenerator_LogLevel" />
+    </ItemGroup>
+
     <ItemGroup>
       <Folder Include="Protobuf\Generated\" />
     </ItemGroup>

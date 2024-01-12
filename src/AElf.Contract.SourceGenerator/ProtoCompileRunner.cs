@@ -1,17 +1,21 @@
+using System.Reflection;
 using AElf.Tools;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
+using AElf.Contract.SourceGenerator.Logging;
+using ILogger = AElf.Contract.SourceGenerator.Logging.ILogger;
 
 namespace AElf.Contract.SourceGenerator;
 
 public class ProtoCompileRunner
 {
-    private static string CurrentDirectory => Environment.CurrentDirectory;
+    private static string? _currentDirectory;
 
-    public static void Run(string protoFilePath)
+    public static void Run(string protoFilePath, ILogger? logger = null)
     {
         var location = Path.GetDirectoryName(protoFilePath);
         var parentPath = Directory.GetParent(location!)!.ToString();
+        _currentDirectory = Directory.GetParent(location!)!.Parent!.Parent!.ToString();
         var compiler = new ProtoCompile
         {
             ToolExe = GetToolExePath(),
@@ -23,21 +27,32 @@ public class ProtoCompileRunner
             ProtoPath = new[]
             {
                 location!,
-                $"{CurrentDirectory}/build/native/include",
+                $"{_currentDirectory}/build/native/include",
                 parentPath,
                 $"{parentPath}/base",
                 $"{parentPath}/message",
             },
-            ProtoDepDir = CurrentDirectory,
+            ProtoDepDir = _currentDirectory,
             OutputDir = location,
             BuildEngine = new NaiveBuildEngine(),
         };
-        compiler.Execute();
+        if (compiler.Execute())
+        {
+            logger?.Log(LogLevel.Debug, "protoc executed.");
+            logger?.Log(LogLevel.Error, $"Current Directory: {_currentDirectory}");
+        }
+        else
+        {
+            logger?.Log(LogLevel.Error, "Failed to execute protoc");
+            logger?.Log(LogLevel.Error, $"Current Directory: {_currentDirectory}");
+            logger?.Log(LogLevel.Error, $"Parent Path: {parentPath}");
+        }
     }
 
     private static string GetToolExePath()
     {
-        return $"{CurrentDirectory}/tools/{GetPlatform()}/protoc";
+        var platform = GetPlatform();
+        return $"{_currentDirectory}/tools/{platform}/protoc" + (platform.StartsWith("win") ? ".exe" : "");
     }
 
     private static string GetPlatform()

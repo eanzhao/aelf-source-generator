@@ -1,4 +1,7 @@
-namespace AElf.Contract.SourceGenerator.Logging;
+using System;
+using System.IO;
+
+namespace AElf.SourceGenerator.Logging;
 
 public class Logger : ILogger
 {
@@ -25,7 +28,7 @@ public class Logger : ILogger
 
       try
       {
-         File.AppendAllText(_logFilePath, $"{logLevel} - [{DateTime.Now}] {message}{Environment.NewLine}");
+         File.AppendAllText(_logFilePath, $"[{DateTime.Now:O} | {logLevel}] {message}{Environment.NewLine}");
       }
       catch (Exception ex)
       {

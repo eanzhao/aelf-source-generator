@@ -1,0 +1,84 @@
+Information - [2024/1/12 18:19:04] Dealing with: hello_world_contract.proto
+Error - [2024/1/12 18:19:04] Failed to execute protoc
+Error - [2024/1/12 18:19:04] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try
+Error - [2024/1/12 18:19:04] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try/Protobuf/Proto
+Error - [2024/1/12 18:19:04] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 18:19:04] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 18:19:05] protoc executed.
+Error - [2024/1/12 18:19:05] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local
+Information - [2024/1/12 18:19:05] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 18:19:05] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 18:19:05] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 18:19:05] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 18:19:05] Deleted b71ccc70b8131ec0_hello_world_contract.protodep
+Debug - [2024/1/12 18:19:05] Deleted hello_world_contract.pb
+Debug - [2024/1/12 18:19:05] Deleted HelloWorldContract.cs
+Information - [2024/1/12 18:19:05] Dealing with: acs0.proto
+Debug - [2024/1/12 18:19:05] protoc executed.
+Error - [2024/1/12 18:19:05] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local
+Information - [2024/1/12 18:19:05] Generated: Acs0.c.cs
+Information - [2024/1/12 18:19:05] Generated: Acs0.g.cs
+Debug - [2024/1/12 18:19:05] Deleted 537f00b602f6aaa7_acs0.protodep
+Debug - [2024/1/12 18:19:05] Deleted acs0.pb
+Debug - [2024/1/12 18:19:05] Deleted Acs0.cs
+Information - [2024/1/12 18:19:09] Dealing with: acs0.proto
+Debug - [2024/1/12 18:19:09] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local/Protobuf/Generated/contract/HelloWorldContract.c.cs
+Debug - [2024/1/12 18:19:09] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local/Protobuf/Generated/contract/HelloWorldContract.g.cs
+Debug - [2024/1/12 18:19:09] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local/Protobuf/Generated/contract/HelloWorldState.g.cs
+Debug - [2024/1/12 18:19:09] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local/Protobuf/Generated/base/Acs0.g.cs
+Debug - [2024/1/12 18:19:09] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local/Protobuf/Generated/base/Acs0.c.cs
+Debug - [2024/1/12 18:19:09] protoc executed.
+Error - [2024/1/12 18:19:09] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local
+Information - [2024/1/12 18:19:09] Generated: Acs0.c.cs
+Information - [2024/1/12 18:19:09] Generated: Acs0.g.cs
+Debug - [2024/1/12 18:19:09] Deleted 537f00b602f6aaa7_acs0.protodep
+Debug - [2024/1/12 18:19:09] Deleted acs0.pb
+Debug - [2024/1/12 18:19:09] Deleted Acs0.cs
+Information - [2024/1/12 18:19:09] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 18:19:09] protoc executed.
+Error - [2024/1/12 18:19:09] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Local
+Information - [2024/1/12 18:19:09] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 18:19:09] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 18:19:09] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 18:19:09] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 18:19:09] Deleted b71ccc70b8131ec0_hello_world_contract.protodep
+Debug - [2024/1/12 18:19:09] Deleted hello_world_contract.pb
+Debug - [2024/1/12 18:19:09] Deleted HelloWorldContract.cs
+Information - [2024/1/12 18:19:24] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 18:19:24] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try/Protobuf/Generated/contract/HelloWorldContract.c.cs
+Debug - [2024/1/12 18:19:24] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try/Protobuf/Generated/contract/HelloWorldContract.g.cs
+Debug - [2024/1/12 18:19:24] Deleted old file: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try/Protobuf/Generated/contract/HelloWorldState.g.cs
+Error - [2024/1/12 18:19:24] Failed to execute protoc
+Error - [2024/1/12 18:19:24] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try
+Error - [2024/1/12 18:19:24] Parent Path: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try/Protobuf/Proto
+Error - [2024/1/12 18:19:24] Failed to find /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try/Protobuf/Proto/contract/hello_world_contract.pb
+Information - [2024/1/12 18:19:43] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 18:19:45] protoc executed.
+Error - [2024/1/12 18:19:45] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try
+Information - [2024/1/12 18:19:45] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 18:19:45] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 18:19:45] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 18:19:45] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 18:19:45] Deleted 7a5f9b8b688aa95e_hello_world_contract.protodep
+Debug - [2024/1/12 18:19:45] Deleted hello_world_contract.pb
+Debug - [2024/1/12 18:19:45] Deleted HelloWorldContract.cs
+Information - [2024/1/12 18:22:33] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 18:22:34] protoc executed.
+Error - [2024/1/12 18:22:34] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try
+Information - [2024/1/12 18:22:34] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 18:22:34] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 18:22:34] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 18:22:34] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 18:22:34] Deleted 7a5f9b8b688aa95e_hello_world_contract.protodep
+Debug - [2024/1/12 18:22:34] Deleted hello_world_contract.pb
+Debug - [2024/1/12 18:22:34] Deleted HelloWorldContract.cs
+Information - [2024/1/12 18:31:43] Dealing with: hello_world_contract.proto
+Debug - [2024/1/12 18:31:44] protoc executed.
+Error - [2024/1/12 18:31:44] Current Directory: /Users/zhaoyiqi/Code/aelf-contract-source-generator/test/AElf.Contracts.Try
+Information - [2024/1/12 18:31:44] Generated: HelloWorldContract.c.cs
+Information - [2024/1/12 18:31:44] Generated: HelloWorldContract.g.cs
+Information - [2024/1/12 18:31:44] Treat hello_world_contract.proto as a contract.
+Information - [2024/1/12 18:31:44] Generated: HelloWorldState.g.cs
+Debug - [2024/1/12 18:31:44] Deleted 7a5f9b8b688aa95e_hello_world_contract.protodep
+Debug - [2024/1/12 18:31:44] Deleted hello_world_contract.pb
+Debug - [2024/1/12 18:31:44] Deleted HelloWorldContract.cs
